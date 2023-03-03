@@ -12,7 +12,7 @@ body {
   align-items: center;
 }
 #home-header {
-  background: url(../bg.png);
+  background: url(../assets/bg.png);
   background-size: cover;
   background-repeat: no-repeat;
   display: flex;
