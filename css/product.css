@@ -70,3 +70,12 @@ button:hover {
 label {
     color: rgb(94, 97, 100);
 }
+
+@media screen and (max-width: 768px) {
+    main {
+        height: auto;
+    }
+
+    .column {
+        flex-basis: 100%;
+    }
