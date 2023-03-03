@@ -10,36 +10,39 @@
 </head>
 
 <body>
-    <div class="image_container">
-        <img src="assets/pexels-web-donut-19090-removebg.png" alt="shoes">
+    <div class="main">
+        <div class="column">
+            <img src="assets/pexels-web-donut-19090-removebg.png" alt="shoes">
+        </div>
+        <div class="column details_container">
+            <div class="type">MEN'S SANDALS</div>
+            <div class="name">HUNK - Toffee</div>
+            <div class="desctiption">Add a spring to your step with this elegant and sleek pair of footwear! With its
+                heavily padded ankle straps for secure footing and matted steel buckles that add flair,
+                support and style go hand in hand with these hunk sandals</div>
+            <button type="submit">Add to Cart</button>
+            <div class="price">$45</div>
+            <form>
+                <label for="color">Select color:</label>
+                <select id="color" name="color">
+                    <option value="red">red</option>
+                    <option value="blue">blue</option>
+                    <option value="green">green</option>
+                </select>
+            </form>
+            <form>
+                <label for="size">Select Size:</label>
+                <select id="size" name="size">
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7" selected>7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                </select>
+            </form>
+        </div>
     </div>
-    <div class="details_container">
-        <div class="type">MEN'S SANDALS</div>
-        <div class="name">HUNK - Toffee</div>
-        <div class="desctiption">Add a spring to your step with this elegant and sleek pair of footwear! With its
-            heavily padded ankle straps for secure footing and matted steel buckles that add flair,
-            support and style go hand in hand with these hunk sandals</div>
-        <button type="submit">Add to Cart</button>
-        <div class="price">45$</div>
-        <form>
-            <label for="color">Select color:</label>
-            <select id="color" name="color">
-                <option value="red">red</option>
-                <option value="blue">blue</option>
-                <option value="green">green</option>
-            </select>
-        </form>
-        <form>
-            <label for="size">Select Size:</label>
-            <select id="size" name="size">
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7" selected>7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-            </select>
-        </form>
-    </div>
+
 
 
     <script src="js/product.js"></script>
