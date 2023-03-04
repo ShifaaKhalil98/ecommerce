@@ -18,11 +18,7 @@ right_btn_1.addEventListener("click", function (event) {
   if (right_clicks_1 > 1) right_btn_1.style.visibility = "hidden";
   event.preventDefault();
 });
-right_btn_1.addEventListener("mouseover", function (event) {
-  right_btn_1.style.cursor = "pointer";
-});
 left_btn_1.addEventListener("click", function (event) {
-  //   const content = document.querySelector("#items-2");
   content_1.scrollLeft -= 300;
   right_btn_1.style.visibility = "visible";
   left_clicks_1++;
@@ -30,36 +26,26 @@ left_btn_1.addEventListener("click", function (event) {
   if (left_clicks_1 == 0) left_btn_1.style.visibility = "hidden";
   event.preventDefault();
 });
-left_btn_1.addEventListener("mouseover", function (event) {
-  left_btn_1.style.cursor = "pointer";
-});
 //category-2
 var right_clicks_2 = 0;
 var left_clicks_2 = 0;
-left_btn_2.style.visibility = "hidden";
+right_btn_2.style.visibility = "hidden";
 const content_2 = document.querySelector("#items-2");
 right_btn_2.addEventListener("click", function (event) {
   content_2.scrollLeft += 300;
   left_btn_2.style.visibility = "visible";
   right_clicks_2++;
   left_clicks_2--;
-  if (right_clicks_2 > 1) right_btn_2.style.visibility = "hidden";
+  if (right_clicks_2 == 0) right_btn_2.style.visibility = "hidden";
   event.preventDefault();
 });
-right_btn_2.addEventListener("mouseover", function (event) {
-  right_btn_2.style.cursor = "pointer";
-});
 left_btn_2.addEventListener("click", function (event) {
-  //   const content = document.querySelector("#items");
   content_2.scrollLeft -= 300;
   right_btn_2.style.visibility = "visible";
   left_clicks_2++;
   right_clicks_2--;
-  if (left_clicks_2 == 0) left_btn_2.style.visibility = "hidden";
+  if (left_clicks_2 > 1) left_btn_2.style.visibility = "hidden";
   event.preventDefault();
-});
-left_btn_2.addEventListener("mouseover", function (event) {
-  left_btn_2.style.cursor = "pointer";
 });
 //category-3
 const content_3 = document.querySelector("#items-3");
@@ -74,20 +60,13 @@ right_btn_3.addEventListener("click", function (event) {
   if (right_clicks_3 > 1) right_btn_3.style.visibility = "hidden";
   event.preventDefault();
 });
-right_btn_3.addEventListener("mouseover", function (event) {
-  right_btn_3.style.cursor = "pointer";
-});
 left_btn_3.addEventListener("click", function (event) {
-  //   const content = document.querySelector("#items");
   content_3.scrollLeft -= 300;
   right_btn_3.style.visibility = "visible";
   left_clicks_3++;
   right_clicks_3--;
   if (left_clicks_3 == 0) left_btn_3.style.visibility = "hidden";
   event.preventDefault();
-});
-left_btn_3.addEventListener("mouseover", function (event) {
-  left_btn_3.style.cursor = "pointer";
 });
 //down
 down_btn.addEventListener("click", function (event) {
