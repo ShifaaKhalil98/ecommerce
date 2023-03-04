@@ -88,16 +88,16 @@ body {
   font-size: 1rem;
   margin-bottom: -2%;
 }
-.scroll-down p {
+#scroll-down p {
   margin-bottom: -0.2%;
 }
-.scroll-down {
+#scroll-down {
   color: white;
   font-weight: bold;
   text-align: center;
   width: 20%;
 }
-.scroll-down img {
+#scroll-down img {
   display: block;
   margin-right: auto;
   margin-left: auto;
@@ -117,7 +117,7 @@ body {
   margin: 6.5% auto 3% auto;
 }
 .container2 {
-  width: 1300px;
+  width: 1340px;
 }
 #items {
   /* position: relative; */
@@ -138,7 +138,7 @@ body {
   padding: 20px;
   border-radius: 5px;
   display: inline-block;
-  box-shadow: 3px 3px 40px -21px rgba(0, 0, 0, 0.8);
+  box-shadow: 3px 3px 40px -21px rgba(27, 12, 12, 0.8);
 }
 .item-card h3 {
   text-align: center;
@@ -163,8 +163,8 @@ body {
 .item-card .flex-box h3 {
   color: #e96e19;
 }
-#scroll-left,
-#scroll-right {
+.scroll-left,
+.scroll-right {
   background-color: transparent;
   border: none;
 }
