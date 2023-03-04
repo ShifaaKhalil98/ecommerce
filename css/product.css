@@ -70,7 +70,7 @@ img {
 
 .details_container {
     margin: 0 5%;
-    gap: 4%
+    gap: 3%
 }
 
 button {
@@ -137,8 +137,10 @@ button:hover {
     font-weight: 500;
 }
 
+
+
 .description {
-    color: gray;
+    color: rgb(95, 90, 90);
     gap: 5%;
 }
 
