@@ -4,7 +4,7 @@ const right_btn_2 = document.getElementById("scroll-right-2");
 const left_btn_2 = document.getElementById("scroll-left-2");
 const right_btn_3 = document.getElementById("scroll-right-3");
 const left_btn_3 = document.getElementById("scroll-left-3");
-const down_btn = document.getElementById("scroll-down");
+const down_btn = document.getElementsByClassName("scroll-down")[0];
 //category-1
 var right_clicks_1 = 0;
 var left_clicks_1 = 0;

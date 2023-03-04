@@ -13,7 +13,7 @@ body {
 .container {
   position: relative;
 }
-#home-header {
+.home-header {
   height: 100vh;
   background: url(../assets/bg.png);
   background-size: cover;
@@ -22,23 +22,18 @@ body {
   flex-direction: column;
   justify-content: space-between;
 }
-#header {
+.header {
   padding: 1%;
   font-size: 1.2rem;
 }
-#navigation {
+.navigation {
   width: 33%;
   gap: 7%;
 }
-#search-container {
+.search-container {
   width: 34%;
 }
 #search {
-}
-/* #search-icon {
-  margin-right: 2%;
-} */
-#search input {
   border: none;
   margin-right: auto;
   margin-left: auto;
@@ -53,7 +48,7 @@ body {
   background-position: left;
   padding-left: 30px;
 }
-#header a {
+.header a {
   color: black;
   text-decoration: none;
 }
@@ -71,18 +66,18 @@ body {
 #login-cart p {
   cursor: pointer;
 }
-#title {
+.home-title {
   margin: 10% 0 9% 12%;
 }
-#title h1 {
+.home-title h1 {
   font-size: 3.5rem;
 }
-#title h4 {
+.home-title h4 {
   font-size: 1.2rem;
   margin-left: 5px;
   margin-top: -15px;
 }
-#features {
+.features {
   justify-content: flex-end;
   width: 40%;
   padding-right: 2%;
@@ -90,16 +85,16 @@ body {
   font-size: 1rem;
   margin-bottom: -2%;
 }
-#scroll-down p {
+.scroll-down p {
   margin-bottom: -0.2%;
 }
-#scroll-down {
+.scroll-down {
   color: white;
   font-weight: bold;
   text-align: center;
   width: 20%;
 }
-#scroll-down img {
+.scroll-down img {
   display: block;
   margin-right: auto;
   margin-left: auto;
@@ -110,8 +105,9 @@ body {
 .empty-div {
   width: 28%;
 }
-#home-content {
+.home-content {
   width: 82%;
+  max-width: 1200px;
   border-radius: 5px;
   background-color: #f1f1f1;
   padding: 1% 0;
@@ -211,32 +207,48 @@ body {
   row-gap: 30px;
 }
 @media (max-width: 820px) {
-  #features,
+  .features,
   .scroll-down {
     font-size: 0.6rem;
   }
-  #header {
+  .header {
     font-size: 0.8rem;
   }
-  #home-header {
+  .home-header {
     height: 60vh;
   }
-  .category-img {
+  .category-img,
+  .right-cat {
     width: 200px;
   }
   .category-img img {
     height: 100%;
     width: 100%;
   }
+  .container2 {
+    width: 740px;
+  }
+  .item-img img {
+    width: 130px;
+  }
   .item-card {
+    height: 270px;
+  }
+  #items-2 {
+    width: 500px;
+  }
+}
+@media (max-width: 412px) {
+  .scroll-down img {
+    width: 20px;
+  }
+  .scroll-down p {
     display: none;
-    width: 650px;
-    height: 400px;
   }
-  .item-card {
-    justify-content: center;
+  .header {
+    font-size: 0.6rem;
   }
-  .item-card .flex-box {
-    justify-content: initial;
+  ::placeholder {
+    opacity: 0;
   }
 }
