@@ -129,6 +129,10 @@ button:hover {
     background-color: rgb(175, 175, 60);
 }
 
+.color button:hover {
+    border: 2px solid rgb(95, 88, 88);
+}
+
 .type {
     font-weight: 500;
 }
@@ -140,4 +144,36 @@ button:hover {
 
 label {
     color: rgb(94, 97, 100);
+}
+
+.size button {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    margin-top: 4%;
+    border: none;
+}
+
+.size {
+    display: flex;
+    flex-direction: row;
+}
+
+.size button {
+    width: 40px;
+    height: 40px;
+    border: 2px solid rgb(145, 139, 139);
+    margin-right: 10px;
+    font-size: 18px;
+    color: rgb(112, 106, 106);
+    background-color: white;
+}
+
+.size button:hover {
+    background-color: rgb(165, 159, 155);
+    color: white;
+}
+
+.size button:focus {
+    outline: none;
 }
