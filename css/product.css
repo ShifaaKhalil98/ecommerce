@@ -6,25 +6,33 @@ body {
     font-family: "Montserrat";
 }
 
-.flex-box {
+.header_container {
+    height: 7vh;
     display: flex;
-    font-weight: bold;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
 }
 
 #header {
     padding: 1%;
     font-size: 1.2rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 33%;
 }
 
-#navigation {
-    width: 25%;
-    gap: 7%;
+
+.flex-box {
+    display: flex;
+    font-weight: bold;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
 #header a {
-    color: black;
+    color: rgb(0, 0, 0);
     text-decoration: none;
 }
 
@@ -35,26 +43,28 @@ body {
 }
 
 #login-cart {
-    width: 30%;
+    width: 33%;
     justify-content: flex-end;
-    gap: 5%;
+    gap: 10%;
 }
+
+
+
 
 /* main container */
 
 .main {
     display: flex;
-    height: 100vh;
+    height: 80vh;
 }
 
 .right-column {
     flex-basis: 40%;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: space-evenly;
     align-items: flex-start;
     padding: 10px;
-    gap: 5%;
 }
 
 .left-column {
@@ -70,7 +80,7 @@ img {
 
 .details_container {
     margin: 0 5%;
-    gap: 3%
+
 }
 
 button {
@@ -92,6 +102,7 @@ button:hover {
     font-size: 2.5rem;
     color: rgb(255, 102, 0);
     font-weight: bolder;
+
 }
 
 .name {
@@ -137,11 +148,21 @@ button:hover {
     font-weight: 500;
 }
 
+.name_like_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
 
+.like {
+    width: 10%;
+    height: 40%;
+}
 
 .description {
-    color: rgb(95, 90, 90);
-    gap: 5%;
+    color: rgb(8, 8, 8);
+    font-weight: bold;
 }
 
 label {
