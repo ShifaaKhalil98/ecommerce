@@ -67,19 +67,24 @@ input {
   left: 0.5rem;
 }
 #search:hover {
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.6);
   transition: all 0.3s ease-in-out;
+  box-shadow: none;
 }
 #search:focus {
   color: rgba(0, 0, 0, 0.8);
-  width: 90%;
+  width: 85%;
   outline: none;
   background-color: rgba(255, 255, 255, 1);
   transition: all 0.3s ease-out;
+  box-shadow: 5px 5px 10px rgba(69, 69, 69, 0.2);
 }
 .header a {
   color: black;
   text-decoration: none;
+}
+.check {
+  margin-right: 0.4rem;
 }
 #open-cart {
   height: 35px;
@@ -100,35 +105,47 @@ input {
   margin: 20% 0 9% 12%;
 }
 .home-title h1 {
-  font-size: 5rem;
+  font-size: 5.1rem;
   margin-bottom: 2rem;
 }
 .home-title h4 {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   margin-left: 5px;
   margin-top: -15px;
 }
 .features {
-  justify-content: flex-end;
+  justify-content: space-around;
   width: 40%;
   padding-right: 2%;
   column-gap: 3%;
-  font-size: 1rem;
+  font-size: 0.9rem;
   margin-bottom: -2%;
 }
 .scroll-down p {
-  margin-bottom: -0.2%;
+  margin-bottom: 1%;
+  font-size: 1.3rem;
+}
+.animation-container {
+  position: absolute;
+  margin: auto;
+}
+#home-header-end {
+  margin-bottom: 1%;
 }
 .scroll-down {
   color: white;
+  display: flex;
+  position: relative;
+  justify-content: space-around;
+  flex-direction: column;
   font-weight: bold;
   text-align: center;
+  height: 6rem;
+  align-items: center;
+  margin-bottom: 1%;
   width: 20%;
 }
 .scroll-down img {
-  display: block;
-  margin-right: auto;
-  margin-left: auto;
 }
 #empty-div {
   width: 40%;
@@ -181,6 +198,7 @@ input {
 }
 .category-img {
   position: absolute;
+  max-width: 20%;
 }
 .right-cat {
   right: 0;

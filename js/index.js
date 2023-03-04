@@ -5,6 +5,20 @@ const left_btn_2 = document.getElementById("scroll-left-2");
 const right_btn_3 = document.getElementById("scroll-right-3");
 const left_btn_3 = document.getElementById("scroll-left-3");
 const down_btn = document.getElementsByClassName("scroll-down")[0];
+const down_arrow = document.getElementById('animation-container');
+const first_section = document.getElementById('first-section');
+
+let position = 0
+let direction = 1
+
+var moveText = setInterval(() => {
+  position += direction
+  if (position > 10 || position < 0) {
+    direction *= -1
+  }
+  down_arrow.style.top = position + 'px'
+}, 50)
+
 //category-1
 var right_clicks_1 = 0;
 var left_clicks_1 = 0;
@@ -70,7 +84,7 @@ left_btn_3.addEventListener("click", function (event) {
 });
 //down
 down_btn.addEventListener("click", function (event) {
-  window.scrollTo(0, 700);
+  first_section.scrollIntoView({ behavior: 'smooth' })
 });
 down_btn.addEventListener("mouseover", function (event) {
   down_btn.style.cursor = "pointer";
