@@ -31,28 +31,29 @@
     </div>
     <div class="main">
         <div class="left_column">
-            <img src="assets/pexels-web-donut-19090-removebg.png" alt="shoes">
+            <img src="assets/sandal.svg" alt="shoes">
         </div>
         <div class="right-column details_container">
             <div class="type">MEN'S SANDALS</div>
             <div class="name">HUNK - Toffee<i class="fas fa-heart"></i></div>
-            <div class="desctiption">Add a spring to your step with this elegant and sleek pair of footwear! With
+            <div class="description">Add a spring to your step with this elegant and sleek pair of footwear! With
                 its
                 heavily padded ankle straps for secure footing and matted steel buckles that add flair,
                 support and style go hand in hand with these hunk sandals</div>
             <button type="submit">Add to Cart</button>
             <div class="price">$45</div>
             <form>
-                <label for="color">Select color:</label>
-                <select id="color" name="color">
-                    <option value="red">red</option>
-                    <option value="blue">blue</option>
-                    <option value="green">green</option>
-                </select>
+                <label for="color">SELECT COLOR:</label>
+                <div id="color" class="color">
+                    <button value="red"></button>
+                    <button value="blue"></button>
+                    <button value="green"></button>
+                    <button value="yellow"></button>
+                </div>
             </form>
             <form>
-                <label for="size">Select Size:</label>
-                <div>
+                <label for="size">SELECT SIZE:</label>
+                <div id="size" class="size">
                     <button value="5">5</button>
                     <button value="6">6</button>
                     <button value="7">7</button>
@@ -60,8 +61,6 @@
                 </div>
             </form>
         </div>
-
-
 
 
         <script src="js/product.js"></script>
