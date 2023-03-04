@@ -1,14 +1,19 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Montserrat";
 }
+input {
+  font-family: "Montserrat";
+
+}
 .flex-box {
   display: flex;
   font-weight: bold;
   align-items: center;
+  justify-content: space-around;
 }
 .container {
   position: relative;
@@ -23,30 +28,54 @@ body {
   justify-content: space-between;
 }
 .header {
+  display: flex;
   padding: 1%;
   font-size: 1.2rem;
 }
 .navigation {
-  width: 33%;
-  gap: 7%;
+  width: 30%;
 }
 .search-container {
-  width: 34%;
+  width: 30%;
+  margin: auto;
+}
+.input-container {
+  display: flex;
+  width: 90%;
+  margin: auto;
+  position: relative;
+  align-items: center;
 }
 #search {
   border: none;
-  margin-right: auto;
-  margin-left: auto;
-  width: 50%;
   height: 35px;
-  padding: 0 1%;
+  width: 70%;
+  margin: auto;
+  font-size: 0.9rem;
+  padding: 0.4rem 1rem;
   border-radius: 5px;
-  color: rgba(0, 0, 0, 0.4);
-  background-color: rgba(255, 255, 255, 0.5);
+  color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(255, 255, 255, 0.4);
   background-image: url("../assets/search-icon.png");
   background-repeat: no-repeat;
-  background-position: left;
-  padding-left: 30px;
+  background-position: 0.5rem;
+  padding-left: 2.6rem;
+  transition: all 0.3s;
+}
+#search-icon {
+  position: absolute;
+  left: 0.5rem;
+}
+#search:hover {
+  background-color: rgba(255, 255, 255, 0.7);
+  transition: all 0.3s ease-in-out;
+}
+#search:focus {
+  color: rgba(0, 0, 0, 0.8);
+  width: 90%;
+  outline: none;
+  background-color: rgba(255, 255, 255, 1);
+  transition: all 0.3s ease-out;
 }
 .header a {
   color: black;
@@ -59,21 +88,23 @@ body {
   cursor: pointer;
 }
 #login-cart {
-  width: 33%;
+  width: 30%;
   justify-content: flex-end;
+  margin-right: 1rem;
   gap: 5%;
 }
 #login-cart p {
   cursor: pointer;
 }
 .home-title {
-  margin: 10% 0 9% 12%;
+  margin: 20% 0 9% 12%;
 }
 .home-title h1 {
-  font-size: 3.5rem;
+  font-size: 5rem;
+  margin-bottom: 2rem;
 }
 .home-title h4 {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   margin-left: 5px;
   margin-top: -15px;
 }
