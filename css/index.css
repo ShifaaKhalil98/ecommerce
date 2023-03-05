@@ -13,10 +13,11 @@ input {
   display: flex;
   font-weight: bold;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 .container {
   position: relative;
+  background-color: linear-gradient(to right, #e96e19, rgb(230, 179, 26));
 }
 .home-header {
   height: 100vh;
@@ -29,13 +30,17 @@ input {
 }
 .header {
   display: flex;
-  padding: 1%;
+  padding: 1% 5%;
   font-size: 1.2rem;
 }
 .navigation {
   width: 30%;
 }
 .search-container {
+  position: absolute;
+  top:2%;
+  left: 50%;
+  transform: translateX(-50%);
   width: 30%;
   margin: auto;
 }
@@ -168,8 +173,9 @@ input {
 #items-3 {
   overflow: hidden;
   white-space: nowrap;
+  padding-left: 2rem;
   float: left;
-  width: 900px;
+  width: 1000px;
   column-gap: 4%;
 }
 #items-2 {
@@ -182,17 +188,33 @@ input {
   column-gap: 4%;
   /* margin-left: -5%; */
 }
+.item-img {
+  position: relative;
+}
+.product-image {
+  width: 20rem;
+  height: 20rem;
+  object-fit: contain;
+}
 .content-title {
   text-align: left;
   margin-left: 35%;
 }
 .item-card {
+  margin-top: 1rem;
   background-color: white;
-  height: 350px;
   padding: 20px;
+  margin-bottom: 2rem;
   border-radius: 5px;
   display: inline-block;
   box-shadow: 3px 3px 40px -21px rgba(27, 12, 12, 0.8);
+  cursor: pointer;
+  scale: 1;
+  transition: all 0.3s;
+}
+.item-card:hover {
+  scale: 1.05;
+  transition: all 0.3s;
 }
 .item-card h3 {
   text-align: center;
@@ -211,7 +233,8 @@ input {
   right: 0;
 }
 #add-to-wishlist {
-  align-self: flex-start;
+  position: absolute;
+  left: 0;
 }
 .item-card .flex-box {
   justify-content: space-between;
@@ -293,6 +316,38 @@ input {
   filter: blur(10px);
   pointer-events: none;
   transition: all 0.3s;
+}
+#main-container {
+  /* opacity: 1; */
+  transition: all 0.3s;
+}
+.move-to-side {
+  opacity: 0;
+  z-index: -5;
+  visibility: hidden;
+  transition: all 0.3s;
+}
+
+.search-results-container {
+  background-image: linear-gradient(to right, #e96e19, rgb(230, 179, 26));
+  position: absolute;
+  min-height: 100vh;
+  width: 100%;
+  padding: 10rem 5rem;
+  box-sizing: border-box;
+  z-index: -1;
+}
+.product_name {
+  width:20rem;
+  text-align: center;
+}
+.search-results {
+  display: flex;
+  justify-content: center;
+  width: 90%;
+  gap: 2%;
+  flex-wrap: wrap;
+  margin: auto;
 }
 
 .name {

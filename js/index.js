@@ -13,6 +13,8 @@ const register_popup = document.getElementById('registerPopup')
 const register_form = document.getElementById('registerForm')
 const login_popup = document.getElementById('loginPopup')
 const login_form = document.getElementById('loginForm')
+const search_bar = document.getElementById('search')
+const search_result = document.getElementById('search-results')
 
 let password_validated = false
 let position = 0
@@ -97,6 +99,40 @@ down_btn.addEventListener("mouseover", function (event) {
   down_btn.style.cursor = "pointer";
 });
 
+search_bar.addEventListener('keyup', () => {
+  if(search_bar.value.length > 0) {
+    axios({
+      "method": "get",
+      "url": `http://localhost/shoppero_backend/search.php?query=${search_bar.value}`
+    }).then((result) => {
+      console.log(result)
+      search_result.innerHTML = ''
+      result.data.forEach((result) => {
+        console.log(result.product_name)
+        let product_card = `<div class="item-card">
+        <div class="item-img"><img id="add-to-wishlist" src="./assets/heart.png" /><img class="product-image" src="./${result.image}" /></div>
+        <div class="product_name"><h3>${result.product_name}</h3></div>
+        <div class="flex-box">
+          <h3>$${result.price}</h3>
+          <button type="button">Add to cart</button>
+        </div>
+      </div>`
+
+      search_result.innerHTML += product_card;
+      })
+    }).catch((err) => {
+        console.error(err)
+    });
+    container.classList.add('move-to-side')
+    const animate = setTimeout(() => {
+      container.style.display = 'none';
+    }, 300)
+  } else {
+    search_result.innerHTML = ''
+    container.classList.remove('move-to-side')
+    container.style.display = 'block';
+  }
+})
 function openLogin() {
       register_popup.classList.remove('openForm');
       login_popup.classList.remove('openForm');
@@ -159,6 +195,7 @@ function submitForm() {
     let password = document.getElementById('password').value;
     let first_name = document.getElementById('firstname').value;
     let last_name = document.getElementById('lastname').value;
+    let status = document.getElementById('status')
 
     let data = new FormData();
     data.append('email', email);
@@ -168,12 +205,12 @@ function submitForm() {
 
     axios({
         "method": "post",
-        "url": "http://localhost/e-commerce_backend/signup.php",
+        "url": "http://localhost/shoppero_backend/signup.php",
         "data": data
     }).then((result) => {
         console.log(result)
         if (result.data.status == "user added") {
-            alert("signed up")
+            status.innerHTML = `Welcome, <b>${result.data.first_name}</b>`
             closeForm()
         } else if(result.data.status == "password not validated") {
           alert("Could not validate password!")
