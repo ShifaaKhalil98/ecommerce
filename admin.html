@@ -12,14 +12,35 @@
       <div class="admin-info">
         <div class="info">
           <h1>Personal Information</h1>
-          <h3>fname lname</h3>
-          <h3>phone number</h3>
-          <h3>email address</h3>
+          <input id="name" name="name" value="fname lname" readonly />
+          <input
+            id="phone-number"
+            name="phone-number"
+            value="phone number"
+            readonly
+          />
+          <input id="email" name="email" value="email" readonly />
         </div>
         <div>
-          <button id="edit" type="button">edit</button>
+          <button onclick="" id="edit" type="button">edit</button>
         </div>
       </div>
+      <!-- users -->
+      <div class="users">
+        <h1>Users</h1>
+        <table>
+          <tr>
+            <th>Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>Phone Number</th>
+            <th>Shipping Address</th>
+          </tr>
+        </table>
+      </div>
+
       <!-- products -->
       <div class="edit-products">
         <h1>Edit products</h1>
@@ -86,7 +107,6 @@
       </div>
       <button type="submit" name="submit" id="submit">Submit</button>
     </div>
-
     <script src="js/admin.js"></script>
   </body>
 </html>

@@ -6,6 +6,7 @@ body {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  padding-bottom: 30px;
 }
 .admin-info {
   padding-left: 20px;
@@ -15,9 +16,12 @@ body {
 }
 .info h1 {
   font-size: 2.5rem;
+  /* display: block; */
 }
-.info h3 {
+.info input {
   font-size: 1.5rem;
+  display: block;
+  margin-bottom: 15px;
 }
 #edit {
   background-color: transparent;
@@ -25,6 +29,15 @@ body {
   text-decoration: underline;
   padding: 20px;
   font-size: 2.5rem;
+}
+.users {
+  border-bottom: 2px solid black;
+  height: 300px;
+  overflow-y: auto;
+  padding-left: 20px;
+  padding-bottom: 20px;
+}
+.users table {
 }
 .edit-products {
   padding-left: 20px;
@@ -126,4 +139,7 @@ table select {
   display: block;
   margin-right: auto;
   margin-left: auto;
+}
+button {
+  cursor: pointer;
 }
