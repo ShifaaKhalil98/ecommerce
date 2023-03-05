@@ -27,7 +27,7 @@
           </div>
         </div>
         <div id="login-cart" class="flex-box">
-          <p onclick="openForm()">LOG IN</p>
+          <p onclick="openLogin()">LOG IN</p>
           <img id="open-cart" src="./assets/open-cart.png" />
         </div>
       </div>
@@ -263,6 +263,18 @@
       </div>
     </div> 
 
+    <form id="loginForm" onsubmit="return false" autocomplete="off">
+      <div class="registerForm" id="loginPopup">
+          <img class="xclose" onclick="closeForm()" src="assets/x-close.png">
+          <h2>Login</h2>
+          <input id="email" placeholder="Email" name="email">
+          <input id="password" type="password" placeholder="Password" name="password">
+          <div class="errormessage" id="errormessage"></div>
+          <button onclick="submitForm()">Log In</button>
+          <span class="noaccount">Don't have an account? <span class="create-one" onclick="openRegister()">Create one</span>.</span>
+      </div >
+  </form>
+
     <form id="registerForm" onsubmit="return false" autocomplete="off">
       <div class="registerForm" id="registerPopup">
           <img class="xclose" onclick="closeForm()" src="assets/x-close.png">
@@ -283,6 +295,7 @@
           <input id="confirmPassword" type="password" placeholder="Confirm Password">
           <div class="errormessage" id="errormessage"></div>
           <button onclick="submitForm()">Submit</button>
+          <span class="noaccount">Already have an account? <span class="create-one" onclick="openLogin()">Log in</span>.</span>
       </div >
   </form>
 

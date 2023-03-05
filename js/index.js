@@ -11,6 +11,8 @@ const container = document.getElementById('main-container');
 const password = document.getElementById('password')
 const register_popup = document.getElementById('registerPopup')
 const register_form = document.getElementById('registerForm')
+const login_popup = document.getElementById('loginPopup')
+const login_form = document.getElementById('loginForm')
 
 let password_validated = false
 let position = 0
@@ -95,13 +97,22 @@ down_btn.addEventListener("mouseover", function (event) {
   down_btn.style.cursor = "pointer";
 });
 
-function openForm() {
-      register_popup.classList.add('openForm')
+function openLogin() {
+      register_popup.classList.remove('openForm');
+      login_popup.classList.remove('openForm');
+      login_popup.classList.add('openForm')
       container.classList.add('containerBlur')
+}
+function openRegister() {
+  register_popup.classList.remove('openForm');
+  login_popup.classList.remove('openForm');
+  register_popup.classList.add('openForm');
+  container.classList.add('containerBlur');
 }
 
 function closeForm() {
   register_popup.classList.remove('openForm')
+  login_popup.classList.remove('openForm')
   container.classList.remove('containerBlur')
 }
 

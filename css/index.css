@@ -328,6 +328,16 @@ input {
   width: 5%;
   cursor: pointer;
 }
+.noaccount {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.create-one {
+  text-decoration: underline;
+  color: #e96e19;
+  cursor: pointer;
+}
 
 .validation {
   max-height: 0px;
