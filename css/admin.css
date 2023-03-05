@@ -1,91 +1,119 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap");
 body {
-  margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: "Montserrat";
 }
-.pers_edit{
-    display: flex;
-    justify-content: space-between;
+.container {
+  width: 70%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
-.edit{
-    margin-right: 20px;
-    text-decoration: underline;
+.admin-info {
+  padding-left: 20px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid black;
 }
-.header{
-    border-bottom: 1px solid rgba(0, 0, 0, 0.7);
+.info h1 {
+  font-size: 2.5rem;
 }
-p{ margin-left: 20px;
+.info h3 {
+  font-size: 1.5rem;
 }
-.icon{
-    width: 50px;
-    height: 50px;
+#edit {
+  background-color: transparent;
+  border: none;
+  text-decoration: underline;
+  padding: 20px;
+  font-size: 2.5rem;
 }
-h1{margin-left: 20px;}
-.edit_btns{
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    margin-left: 20%;
-    margin-right: 20%;
-    
-    
+.edit-products {
+  padding-left: 20px;
 }
-button{
-width: 30%;
-background-color: rgb(255, 102, 0);
-color: rgb(0, 0, 0);
-height: 30px;
-border-radius: 9%;
-border-color: white;
-width: 200px;
-
+.edit-products {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
 }
-.container{
-    display: flex;
-    justify-content: space-between;
-    margin-top:5%;
-    margin-left:1% ;
-    font-weight: bold;
+.edit-products img {
+  width: 35px;
+  height: 45px;
 }
-.labels{
-    display: flex;
-    flex-direction: column;
+.options {
+  display: flex;
+  justify-content: center;
+  column-gap: 10%;
+  margin-top: 40px;
 }
-.product_name_input{
-    border: none;
-    height: 35px;
-    
-    margin: auto;
-    font-size: 0.9rem;
-    padding: 0.4rem 1rem;
-    
-    color: rgba(0, 0, 0, 0.6);
-    background-color: rgba(203, 203, 203, 0.5);
-    background-repeat: no-repeat;
-    background-position: 0.5rem;
-    padding-left: 2.6rem;
-    transition: all 0.3s;}
-    select,option{
-        border: none;
-    height: 35px;
-    
-    margin: auto;
-    font-size: 0.9rem;
-    padding: 0.4rem 1rem;
-    
-    color: rgba(0, 0, 0, 0.6);
-    background-color: rgba(203, 203, 203, 0.5);
-    background-repeat: no-repeat;
-    background-position: 0.5rem;
-    padding-left: 2.6rem;
-    transition: all 0.3s;}
-    .description{
-        height: 80px;
-        margin-bottom: 3%;
-        background-color: rgba(203, 203, 203, 0.5);
-        
-    }
+.options button {
+  border: none;
+  background-color: #e96e19;
+  width: 15%;
+  height: 35px;
+  font-size: 1rem;
+}
+input,
+select {
+  border: none;
+}
+.form {
+  padding: 50px 20px;
+  display: flex;
+  justify-content: space-between;
+  /* width: 40; */
+  font-size: 1.5rem;
+}
+.form div {
+  flex-basis: 40%;
+}
+.flex-box {
+  display: flex;
+  column-gap: 15%;
+}
+table {
+  width: 100%;
+}
+tr {
+  height: 80px;
+}
+td {
+  width: 200px;
+}
+.value {
+  text-align: right;
+}
+table select {
+  width: 80%;
+  height: 30px;
+  background-color: #d9d9d9;
+}
+.form-left #product-name {
+  height: 30px;
+  background-color: #d9d9d9;
+  width: 98.5%;
+}
+.form-left #description {
+  height: 265px;
+  background-color: #d9d9d9;
+  width: 98.5%;
+}
+.product-image {
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+  background-color: #d9d9d9;
+  height: 300px;
+  width: 350px;
+}
+.product-image p {
+  font-size: 1rem;
+}
+.product-image span {
+  color: #e96e19;
+}
+#size,
+#color,
+#material {
+  background-color: #d9d9d9;
+  width: 60%;
+  height: 30px;
+}
