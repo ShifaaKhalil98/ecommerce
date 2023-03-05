@@ -117,3 +117,13 @@ table select {
   width: 60%;
   height: 30px;
 }
+#submit {
+  border: none;
+  background-color: #e96e19;
+  width: 15%;
+  height: 35px;
+  font-size: 1rem;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
