@@ -12,7 +12,13 @@
       <div class="admin-info">
         <div class="info">
           <h1>Personal Information</h1>
-          <input id="name" name="name" value="fname lname" readonly />
+          <input
+            id="first-name"
+            name="first-name"
+            value="first-name"
+            readonly
+          />
+          <input id="last-name" name="last-name" value="last-name" readonly />
           <input
             id="phone-number"
             name="phone-number"
@@ -70,7 +76,7 @@
             <tr>
               <td class="key">Subcategory</td>
               <td class="value">
-                <select name="subcategory">
+                <select name="for_men">
                   <option>Tops</option>
                   <option>bottoms</option>
                   <option>Shoes</option>
@@ -101,8 +107,14 @@
           <input id="size" name="product_size" type="text" />
           <p>Add colors</p>
           <input id="color" name="product_color" type="text" />
+          <p>Main color</p>
+          <input id="main-color" name="main_color" type="text" />
           <p>Add materials</p>
           <input id="material" name="product_material" type="text" />
+          <p>Add price</p>
+          <input id="price" name="product_price" type="text" />
+          <p>Add discount</p>
+          <input id="discount" name="discount" type="text" />
         </div>
       </div>
       <button type="submit" name="submit" id="submit">Submit</button>
