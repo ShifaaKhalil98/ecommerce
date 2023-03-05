@@ -183,7 +183,8 @@ input {
   /* margin-left: -5%; */
 }
 .content-title {
-  text-align: center;
+  text-align: left;
+  margin-left: 35%;
 }
 .item-card {
   background-color: white;
@@ -196,9 +197,15 @@ input {
 .item-card h3 {
   text-align: center;
 }
-.category-img {
+.category-img-left {
   position: absolute;
-  max-width: 20%;
+  left: 8rem;
+  max-width: 28%;
+}
+.category-img-right {
+  position: absolute;
+  right: 8rem;
+  max-width: 28%;
 }
 .right-cat {
   right: 0;
@@ -225,6 +232,140 @@ input {
   background-color: transparent;
   border: none;
   cursor: pointer;
+}
+.errormessage {
+  color: rgb(255, 83, 83);
+}
+
+.registerForm h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.registerForm input {
+  border: none;
+  background-color: rgb(209, 209, 209);
+  margin: 0.5rem 0rem;
+  padding: 1rem;
+  box-sizing: border-box;
+  border-radius: 0.5rem;
+  font-family: "Montserrat";
+  transition: all 0.3s;
+}
+
+.registerForm input:focus {
+  outline: none;
+  background-color: rgb(182, 182, 182);
+  transition: all 0.2s;
+}
+
+
+.errorField {
+  outline: 0.2rem rgb(255, 83, 83) solid;
+}
+.registerForm {
+  width: 30%;
+  background-color: rgb(227, 227, 227);
+  padding: 3rem;
+  position: absolute;
+  box-sizing: border-box;
+  top: 40%;
+  left: 50%;
+  border-radius: 1rem;
+  transform: translate(-50%, -50%) scale(1.1);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+}
+
+.openForm {
+  top: 50%;
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -50%) scale(1);
+  transition: all 0.3s ease-in-out;
+}
+
+.containerBlur {
+  filter: blur(10px);
+  pointer-events: none;
+  transition: all 0.3s;
+}
+
+.name {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.name input {
+  width: 48%;
+}
+
+.registerForm button {
+  border: none;
+  background-color: #e96e19;
+  margin: 0.5rem 0rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  font-family: "Montserrat";
+  transition: all 0.2s;
+}
+
+.registerForm button:hover {
+  cursor: pointer;
+  background-color: rgb(254, 216, 99);
+  transition: all 0.3s;
+}
+
+.xclose {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  width: 5%;
+  cursor: pointer;
+}
+
+.validation {
+  max-height: 0px;
+  opacity: 0;
+  z-index: -1;
+  transition: all 0.3s;
+}
+
+.validationOpened {
+  max-height: 15rem;
+  opacity: 1;
+  transition: all 0.3s;
+}
+
+.correct {
+  color: green;
+  padding-left: 1rem;
+  transition: all 0.3s;
+}
+
+.correct:before {
+  position: relative;
+  left: -1rem;
+  content: "✔";
+  transition: all 0.3s;
+}
+
+.error {
+  color: red;
+  padding-left: 2rem;
+  transition: all 0.3s;
+}
+
+.error:before {
+  position: relative;
+  left: -2rem;
+  content: "✖";
+  transition: all 0.3s;
 }
 #footer {
   background-color: #e96e19;
