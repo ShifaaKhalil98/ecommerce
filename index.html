@@ -8,53 +8,61 @@
     <link rel="stylesheet" type="text/css" href="css/index.css" />
   </head>
   <body>
-    <div id="home-header">
-      <div id="header" class="flex-box">
-        <div id="navigation" class="flex-box">
+    <div id="main-container">
+    <div class="home-header">
+      <div class="header flex-box">
+        <div class="navigation flex-box">
           <a href="index.html">HOME</a>
           <a href="products.html">PRODUCTS</a>
           <a href="">SALES</a>
         </div>
-        <div id="search-container">
-          <div id="search" class="flex-box">
-            <!-- <img id="search-icon" src="./assets/search-icon.png" /> -->
-            <input type="text" placeholder="Black shoes, white shirt..." />
+        <div class="search-container">
+          <div class="input-container">
+            <input
+              id="search"
+              type="text"
+              placeholder="Black shoes, white shirt..."
+              autocomplete='off'
+            />
           </div>
         </div>
         <div id="login-cart" class="flex-box">
-          <p>LOG IN</p>
+          <p onclick="openLogin()">LOG IN</p>
           <img id="open-cart" src="./assets/open-cart.png" />
         </div>
       </div>
-      <div id="title">
+      <div class="home-title">
         <h1>SHOPPERO</h1>
-        <h4>Find your favorite clothes</h4>
+        <h4>Find shirts, hoodies, shoes and more!</h4>
       </div>
       <div id="home-header-end" class="flex-box">
         <div id="empty-div"></div>
-        <div id="scroll-down">
-          <p>Scroll Down</p>
-          <img src="./assets/scroll-down.png" />
+        <div class="scroll-down">
+          <div id="animation-container" class="animation-container">
+            <p>SCROLL DOWN</p>
+            <img id="down-arrow" src="./assets/scroll-down.png" />
         </div>
-        <div id="features" class="flex-box">
+      </div>
+        <div class="features flex-box">
           <div class="flex-box">
-            <img src="./assets/checked.png" />
+            <img class="check" src="./assets/checked.png" />
             <p>TRUSTED BRANDS</p>
           </div>
           <div class="flex-box">
-            <img src="./assets/checked.png" />
+            <img class="check" src="./assets/checked.png" />
             <p>CREDIT CARD</p>
           </div>
           <div class="flex-box">
-            <img src="./assets/checked.png" />
+            <img class="check" src="./assets/checked.png" />
             <p>CASH ON DELIVERY</p>
           </div>
         </div>
       </div>
     </div>
+  </div>
     <!-- category-1 -->
-    <div class="container flex-box">
-      <div id="home-content">
+    <div id="first-section" class="container flex-box">
+      <div class="home-content">
         <div class="content-title">
           <h1>GET IN STYLE!</h1>
           <h3>Men's Fashion</h3>
@@ -116,21 +124,20 @@
           </button>
         </div>
       </div>
-      <div class="category-img"><img src="./assets/boss_men.png" /></div>
+      <img class="category-img-left" src="./assets/boss_men.png" />
     </div>
     <!-- category-2 -->
     <div class="container flex-box">
-      <div id="home-content">
+      <div class="home-content">
         <div class="content-title">
           <h1>UNLEASH YOUR POTENTIAL!</h1>
           <h3>Women's Fashion</h3>
         </div>
         <div class="container2 flex-box">
-          <div class="empty-div"></div>
           <button id="scroll-left-2" class="scroll-left">
             <img src="./assets/scroll-left.png" />
           </button>
-          <div id="items-2" class="flex-box">
+          <div id="items-2">
             <div class="item-card">
               <div id="add-to-wishlist"><img src="./assets/heart.png" /></div>
               <div class="item-img"><img src="./assets/item4.png" /></div>
@@ -180,13 +187,16 @@
           <button id="scroll-right-2" class="scroll-right">
             <img src="./assets/scroll-right.png" />
           </button>
+          <div class="empty-div"></div>
         </div>
       </div>
-      <div class="category-img"><img src="./assets/boss_women.png" /></div>
+      <div class="category-img-right right-cat">
+        <img src="./assets/boss_women.png" />
+      </div>
     </div>
-    <!-- category-3 -->
+     <!-- category-3 -->
     <div class="container flex-box">
-      <div id="home-content">
+      <div class="home-content">
         <div class="content-title">
           <h1>STEP UP YOUR SHOW GAME!</h1>
           <h3>Women's Shoes</h3>
@@ -251,7 +261,44 @@
       <div class="category-img">
         <img src="./assets/boss_women_shoes.png" />
       </div>
-    </div>
+    </div> 
+
+    <form id="loginForm" onsubmit="return false" autocomplete="off">
+      <div class="registerForm" id="loginPopup">
+          <img class="xclose" onclick="closeForm()" src="assets/x-close.png">
+          <h2>Login</h2>
+          <input id="loginEmail" placeholder="Email" name="email">
+          <input id="loginPassword" type="password" placeholder="Password" name="password">
+          <div class="errormessage" id="errormessage"></div>
+          <button onclick="submitLogin()">Log In</button>
+          <span class="noaccount">Don't have an account? <span class="create-one" onclick="openRegister()">Create one</span>.</span>
+      </div >
+  </form>
+
+    <form id="registerForm" onsubmit="return false" autocomplete="off">
+      <div class="registerForm" id="registerPopup">
+          <img class="xclose" onclick="closeForm()" src="assets/x-close.png">
+          <h2>Register</h2>
+          <div class="name">
+              <input id="firstname" placeholder="First Name" name="firstname">
+              <input id="lastname" placeholder="Last Name" name="lastname">
+          </div>
+          <input id="email" placeholder="Email" name="email">
+          <input id="password" type="password" placeholder="Password" name="password">
+          <div class="validation" id="validation">
+              <p id="lowercase" class="error">A <b>lowercase</b> letter</p>
+              <p id="uppercase" class="error">An <b>uppercase</b> letter</p>
+              <p id="special" class="error">A <b>special character</b></p>
+              <p id="number" class="error">A <b>number</b></p>
+              <p id="length" class="error"><b>8 characters</b> minimum</p>
+          </div>
+          <input id="confirmPassword" type="password" placeholder="Confirm Password">
+          <div class="errormessage" id="errormessage"></div>
+          <button onclick="submitForm()">Submit</button>
+          <span class="noaccount">Already have an account? <span class="create-one" onclick="openLogin()">Log in</span>.</span>
+      </div >
+  </form>
+
     <!-- Footer -->
     <div id="footer" class="flex-box">
       <div class="shop-name">
