@@ -1,0 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap");
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat";
+}
+.pers_edit{
+    display: flex;
+    justify-content: space-between;
+}
+.edit{
+    margin-right: 20px;
+    text-decoration: underline;
+}
+.header{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.7);
+}
