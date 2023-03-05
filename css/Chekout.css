@@ -1,0 +1,80 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap");
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat";
+}
+
+.flex-box {
+    display: flex;
+    font-weight: bold;
+    align-items: center;
+}
+
+.container {
+    position: relative;
+}
+
+#home-header {
+    height: 100vh;
+    background: url(../assets/bg.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#header {
+    padding: 1%;
+    font-size: 1.2rem;
+}
+
+#navigation {
+    width: 33%;
+    gap: 7%;
+}
+
+#search-container {
+    width: 34%;
+}
+
+
+
+#search-icon {
+    margin-right: 2%;
+}
+
+#search input {
+    border: none;
+    margin-right: auto;
+    margin-left: auto;
+    width: 50%;
+    height: 35px;
+    padding: 0 1%;
+    border-radius: 5px;
+    color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(255, 255, 255, 0.5);
+    background-image: url("../assets/search-icon.png");
+    background-repeat: no-repeat;
+    background-position: left;
+    padding-left: 30px;
+}
+
+#header a {
+    color: black;
+    text-decoration: none;
+}
+
+#open-cart {
+    height: 35px;
+    width: 35px;
+    margin-top: -2.5%;
+}
+
+#login-cart {
+    width: 33%;
+    justify-content: flex-end;
+    gap: 5%;
+}
