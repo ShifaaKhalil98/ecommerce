@@ -5,13 +5,21 @@ const products_container = document.getElementById('products_container')
 const login_status = document.getElementById('status')
 const men = document.getElementById('men')
 const women = document.getElementById('women')
-const select_price = document.getElementById('price')
-const select_color = document.getElementById('color')
-const select_brand = document.getElementById('brand')
-const select_material = document.getElementById('material')
+const select_price = document.getElementById('price_filter')
+const select_color = document.getElementById('color_filter')
+const select_brand = document.getElementById('brand_filter')
+const select_material = document.getElementById('material_filter')
 
 
 select_price.addEventListener('change', () => {
+    axios.get(`http://localhost/shoppero_backend/get_products.php?filter=price&value=${select_price.value}`).then((res)=>{
+    console.log(res.data);
+    displayProducts(res.data)
+    }).catch((err)=>{
+        console.error(err)
+    });
+})
+select_color.addEventListener('change', () => {
     axios.get(`http://localhost/shoppero_backend/get_products.php?filter=price&value=${select_price.value}`).then((res)=>{
     console.log(res.data);
     displayProducts(res.data)
