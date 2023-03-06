@@ -191,10 +191,22 @@
           <h2>Login</h2>
           <input id="loginEmail" placeholder="Email" name="email">
           <input id="loginPassword" type="password" placeholder="Password" name="password">
+          <span class="noaccount">Forgot password? <span class="create-one" onclick="openReset()">Reset it</span>.</span>
           <button onclick="submitLogin()">Log In</button>
           <span class="noaccount">Don't have an account? <span class="create-one" onclick="openRegister()">Create one</span>.</span>
       </div >
   </form>
+
+  <form id="passwordForm" onsubmit="return false" autocomplete="off">
+    <div class="registerForm" id="passwordPopup">
+        <img class="xclose" onclick="closeForm()" src="assets/x-close.png">
+        <h2>Reset Your Password</h2>
+        <input id="resetEmail" placeholder="Email" name="email">
+        <input id="resetPassword" type="password" placeholder="New Password" name="password">
+        <button onclick="resetPass()">Reset</button>
+        <span class="noaccount">Don't have an account? <span class="create-one" onclick="openRegister()">Create one</span>.</span>
+    </div >
+</form>
 
     <form id="registerForm" onsubmit="return false" autocomplete="off">
       <div class="registerForm" id="registerPopup">

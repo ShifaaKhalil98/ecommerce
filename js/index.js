@@ -22,6 +22,10 @@ const items4 = document.getElementById('items-4')
 const login_status = document.getElementById('login-text')
 const logged_in = document.getElementById('logged-in')
 const welcome = document.getElementById('welcome')
+const reset_email = document.getElementById('resetEmail')
+const reset_password = document.getElementById('resetPassword')
+const reset_form = document.getElementById('passwordForm')
+const reset_popup = document.getElementById('passwordPopup')
 let password_validated = false
 let position = 0
 let direction = 1
@@ -242,11 +246,13 @@ search_bar.addEventListener('keyup', () => {
 function openLogin() {
       register_popup.classList.remove('openForm');
       login_popup.classList.remove('openForm');
+      reset_popup.classList.remove('openForm');
       login_popup.classList.add('openForm')
       container.classList.add('containerBlur')
 }
 function openRegister() {
   register_popup.classList.remove('openForm');
+  reset_popup.classList.remove('openForm');
   login_popup.classList.remove('openForm');
   register_popup.classList.add('openForm');
   container.classList.add('containerBlur');
@@ -255,6 +261,7 @@ function openRegister() {
 function closeForm() {
   register_popup.classList.remove('openForm')
   login_popup.classList.remove('openForm')
+  reset_popup.classList.remove('openForm');
   container.classList.remove('containerBlur')
 }
 
@@ -345,6 +352,25 @@ function submitForm() {
   }
 }
 
+function resetPass() {
+  let data = new FormData();
+  data.append('email', reset_email.value);
+  data.append('password', reset_password.value);
+
+  axios({
+    "method": "post",
+    "url": "http://localhost/shoppero_backend/changepass.php",
+    "data": data
+  }).then((result) => {
+      if(result.data.status = 'success') {
+        closeForm()
+      }
+      
+  }).catch((err) => {
+      console.error(err)
+  });
+}
+
 function submitLogin() {
   let email = document.getElementById('loginEmail').value;
   let password = document.getElementById('loginPassword').value;
@@ -412,4 +438,12 @@ function validateForm() {
       return false
   }
   return true
+}
+
+function openReset() {
+  register_popup.classList.remove('openForm');
+  login_popup.classList.remove('openForm');
+  reset_popup.classList.remove('openForm');
+  reset_popup.classList.add('openForm');
+  container.classList.add('containerBlur')
 }

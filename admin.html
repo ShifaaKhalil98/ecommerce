@@ -20,12 +20,6 @@
             readonly
           />
           <input id="last-name" name="last-name" value="last-name" readonly />
-          <input
-            id="phone-number"
-            name="phone-number"
-            value="phone number"
-            readonly
-          />
           <input id="email" name="email" value="email" readonly />
         </div>
       </div>
@@ -38,7 +32,6 @@
             <th>First Name</th>
             <th>Last Name</th>
             <th>Email</th>
-            <th>Password</th>
             <th>Phone Number</th>
             <th>Shipping Address</th>
           </tr>
@@ -60,7 +53,7 @@
       <div class="form">
         <div class="form-left">
           <p>Product name</p>
-          <input id="product-name" name="product_name" type="text" />
+          <input id="product_name" name="product_name" type="text" />
           <table>
             <tr>
               <td class="key">Category</td>
@@ -99,12 +92,11 @@
           <p>Product image</p>
           <div class="product-image">
             <input
-              id="product-image"
+              id="product_image"
               name="product_image"
               type="file"
               multiple
             />
-
             <p>drag your image(s) <span>or click to browse</span></p>
             <button class="upload-btn" onclick="uploadFiles()">Submit</button>
           </div>
@@ -113,7 +105,7 @@
           <p>Add colors</p>
           <input id="color" name="product_color" type="text" />
           <p>Main color</p>
-          <input id="main-color" name="main_color" type="text" />
+          <input id="main_color" name="main_color" type="text" />
           <p>Add materials</p>
           <input id="material" name="product_material" type="text" />
           <p>Add price</p>
@@ -123,6 +115,21 @@
         </div>
       </div>
       <button name="submit" id="submit">Submit</button>
+    </div>
+    <div class="login">
+      <form id="loginForm" onsubmit="return false" autocomplete="off">
+        <div class="loginForm">
+          <h2>Login</h2>
+          <input id="admin_password" placeholder="Email" name="admin_email" />
+          <input
+            id="admin_email"
+            type="password"
+            placeholder="Password"
+            name="admin_password"
+          />
+          <button id="loginButton">Log In</button>
+        </div>
+      </form>
     </div>
     <script src="js/admin.js"></script>
   </body>
