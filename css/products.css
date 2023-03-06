@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap");
 
+@font-face {
+    font-family: mon-bold;
+    src: url(/shoppero-frontend/assets/fonts/static/Montserrat-Bold.ttf);
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -79,33 +84,142 @@ body {
     gap: 5%;
 }
 
-/* main */
-.category {
-    display: flex;
-    justify-content: space-between;
-    margin: 5% auto;
-    width: 90%;
+#footer {
+    background-color: #e96e19;
+    height: 400px;
+    align-items: center;
+    text-align: center;
 }
 
-.category-item {
+.shop-name h1 {
+    font-size: 3.5rem;
+}
+
+.shop-name {
+    width: 50%;
+}
+
+.footer-right {
+    color: white;
+    padding: 0 30px 0 50px;
+    width: 30%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    row-gap: 20px;
+}
+
+.footer-left {
+    color: white;
+    width: 15%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border-right: 3px solid white;
+    row-gap: 30px;
+}
+
+.categories {
+    display: flex;
+    justify-content: space-around;
+    padding: 70px 0;
+    height: 30vh;
+}
+
+.men_category,
+.women_category {
+    border: 2px solid black;
+    border-radius: 15%;
+    display: flex;
     justify-content: center;
-    width: 45%;
-    height: 400px;
-    background-color: #fff;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
+    align-items: center;
+    position: relative;
+    padding: 10px 10px 0px 10px;
+    width: 35%;
+    height: 50%;
+}
+.image-wrapper {
+    margin-right: 20px;
 }
 
-.category-item img {
-    height: 70%;
+.image-wrapper img {
+    display: block;
+    position: relative;
+    top: -60px;
+
 }
 
-.category-item h3 {
-    margin-top: 5%;
-    font-size: 1.2rem;
+.woman {
+    display: block;
+    position: relative;
+    top: -60px;
+    left: 20px;
+}
+
+.image-wrapper_women img {
+    display: block;
+    position: relative;
+    top: 20px;
+    left: 300px;
+}
+
+.text-wrapper h2 {
+    margin: 0 0 0 10px;
+    font-size: 1.8rem;
     font-weight: bold;
-    text-transform: uppercase;
+    font: mon-bold;
+}
+.main {
+    padding: 0 20px;
+    display: flex;
+}
+
+
+.filter_bar {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.filter_group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+select {
+    width: 100%;
+}
+
+.item-card {
+    background-color: white;
+    height: 350px;
+    padding: 20px;
+    border-radius: 5px;
+    display: inline-block;
+    box-shadow: 3px 3px 40px -21px rgba(27, 12, 12, 0.8);
+    margin: 10px;
+}
+
+.item-card h3 {
+    text-align: center;
+}
+
+.item-card .flex-box {
+    justify-content: space-between;
+    width: 100%;
+}
+
+.item-card .flex-box h3 {
+    color: #e96e19;
+}
+
+.products_container {
+    display: flex;
+    flex-wrap: wrap;
 }
