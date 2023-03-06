@@ -12,9 +12,6 @@ axios.get(endpoint)
   .catch(error => {
     console.error(error);
   });
-
-
-
 let displayProducts= (data)=>{
     products.innerHTML = ''
     data.forEach((element) => {
