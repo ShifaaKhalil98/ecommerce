@@ -5,15 +5,15 @@ Welcome to Shoppero, a modern ecommerce website that allows users to browse prod
 
 ## Team Members
 
-Ayman Hajjar - Team Leader
-Shifaa Khalil
-Salman Moussa
-Mohamad Shoumar
+- Ayman Hajjar - Team Leader
+- Shifaa Khalil
+- Salman Moussa
+- Mohamad Shoumar
 
 ## Color Palette
 
-#FFA500 (Orange)
-#FFD166 (Yellow)
+- #FFA500 (Orange)
+- #FFD166 (Yellow)
 
 ## User Stories
 
