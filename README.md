@@ -1,8 +1,10 @@
 # shoppero-frontend
+
 Shoppero Ecommerce Website
 Welcome to Shoppero, a modern ecommerce website that allows users to browse products, search and filter products, add products to cart, favorite products, checkout (without payment), and much more. This website uses HTML, CSS, vanilla PHP, and JavaScript, with MySQL as the database. In this README, we will provide a brief overview of the different functionalities of this website.
 
 User Functionalities
+
 Login
 To login, the user can simply click on the login button on the home page, enter their email and password, and click submit. The user will be redirected to their profile page if the login is successful.
 
@@ -45,5 +47,12 @@ The admin can add, edit, and remove products by clicking on the add/edit/remove 
 
 Display Users
 The admin can view the details of all the users registered on the website by clicking on the display users button located on their profile page. This will take them to a page that displays all the user details.
+
+Technologies Used
+PHP
+JS
+HTML
+CSS
+MySQL
 
 Thank you for choosing Shoppero!
