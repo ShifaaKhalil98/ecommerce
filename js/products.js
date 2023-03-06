@@ -2,9 +2,48 @@ const description = document.getElementById('description')
 const price = document.getElementById('price')
 const name = document.getElementById('name')
 const products_container = document.getElementById('products_container')
-const login_status = document.getElementById('status')
+const login_status = document.getElementById('login-text')
+const logged_in = document.getElementById('logged-in')
 const men = document.getElementById('men')
+const women = document.getElementById('women')
+const select_price = document.getElementById('price_filter')
+const select_color = document.getElementById('color_filter')
+const select_brand = document.getElementById('brand_filter')
+const select_material = document.getElementById('material_filter')
 
+
+select_price.addEventListener('change', () => {
+    axios.get(`http://localhost/shoppero_backend/get_products.php?filter=price&value=${select_price.value}`).then((res)=>{
+    console.log(res.data);
+    displayProducts(res.data)
+    }).catch((err)=>{
+        console.error(err)
+    });
+})
+select_color.addEventListener('change', () => {
+    axios.get(`http://localhost/shoppero_backend/get_products.php?filter=color&value=${select_color.value}`).then((res)=>{
+    console.log(res.data);
+    displayProducts(res.data)
+    }).catch((err)=>{
+        console.error(err)
+    });
+})
+select_material.addEventListener('change', () => {
+    axios.get(`http://localhost/shoppero_backend/get_products.php?filter=color&value=${select_material.value}`).then((res)=>{
+    console.log(res.data);
+    displayProducts(res.data)
+    }).catch((err)=>{
+        console.error(err)
+    });
+})
+select_brand.addEventListener('change', () => {
+    axios.get(`http://localhost/shoppero_backend/get_products.php?filter=color&value=${select_brand.value}`).then((res)=>{
+    console.log(res.data);
+    displayProducts(res.data)
+    }).catch((err)=>{
+        console.error(err)
+    });
+})
 axios({
     "method": "get",
     "url": "http://localhost/shoppero_backend/check_login.php",
@@ -12,7 +51,8 @@ axios({
   }).then((result) => {
     console.log(result)
     if(result.data.success) {
-      login_status.innerHTML = `Welcome, <b>${result.data.first_name}</b>`
+      login_status.style.display = 'none'
+      logged_in.style.display = 'block'
     } else {
       console.log('noo')
     }
@@ -63,11 +103,53 @@ function fetchCat(gender) {
     }).catch((err)=>{
         console.error(err)
     });
+    if(gender == 'men') {
+        men.classList.add('selected')
+        women.classList.remove('selected')
+        men.onclick = null
+        men.innerHTML = `
+        <div class="subcategories">
+            <img onclick="fetchSubCat('clothes', 'men')" class="subcat" src="assets/clothes.png">
+            <img onclick="fetchSubCat('shoes', 'men')" class="subcat" src="assets/shoes.png">
+            <img onclick="fetchSubCat('accessories', 'men')" class="subcat" src="assets/accessories.png">
+            <img onclick="fetchSubCat('watches', 'men')" class="subcat" src="assets/watches.png">
+        </div>`
+        women.innerHTML = `
+        <div class="text-wrapper">
+                <h2>Women Collection</h2>
+            </div>
+            <img class="woman" src="assets/women_products.svg" alt="image">
+        `
+    } else {
+        men.classList.remove('selected')
+        women.onclick = null
+        men.onclick = 
+        women.classList.add('selected')
+        men.innerHTML = `<div class="image-wrapper">
+        <img class="man" src="assets/men_products.svg" alt="image">
+    </div>
+    <div class="text-wrapper">
+        <h2>Men Collection</h2>
+    </div>`
+        women.innerHTML = `<div class="subcategories">
+        <img onclick="fetchSubCat('clothes', 'women')" class="subcat" src="assets/clothes.png">
+        <img onclick="fetchSubCat('shoes', 'women')" class="subcat" src="assets/shoes.png">
+        <img onclick="fetchSubCat('accessories', 'women')" class="subcat" src="assets/accessories.png">
+        <img onclick="fetchSubCat('watches', 'women')" class="subcat" src="assets/watches.png">
+    </div>`
+
+    }
 }
-// save the id of the clicked product to the local storage
-// go to product js and add axious with the id in it
-//  then create a function based on that id with the html id's
-// 
+
+function fetchSubCat(subcat, gender) {
+    products_container.innerHTML = ''
+    axios.get(`http://localhost/shoppero_backend/get_products.php?category=${gender}&subcat=${subcat}`).then((res)=>{
+    console.log(res.data);
+    displayProducts(res.data)
+    }).catch((err)=>{
+        console.error(err)
+    });
+}
 
 
 
