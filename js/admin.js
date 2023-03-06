@@ -24,6 +24,38 @@ edit_btn.addEventListener("click", function () {
   }
 });
 
+function display_users(){
+table_users = document.getElementById("table-users");
+for (//////////////) {
+  e = document.createElement("tr");
+  for(i = 0; i < 7; i++){
+    d = document.createElement("td");
+    d.innerText = /////////////////;
+    table_users.appendChild(e);
+    e.appendChild(d);
+  }
+}
+axios({
+  method: "post",
+  url: "http://localhost/shoppero-backend/admin.php",
+  data: data,
+})
+  .then((result) => {
+    console.log(result);
+    if (result.data.status == "exist") {
+      ////////////////
+      closeForm();
+    } else if (result.data.status == "empty") {
+      alert("No users to display!");
+    }
+  })
+  .catch((err) => {
+    console.error(err);
+  });
+}
+}
+}
+
 function add_product() {
   if (validateForm()) {
     let product_name = document.getElementById("product-name").value;

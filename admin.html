@@ -34,7 +34,7 @@
       <!-- users -->
       <div class="users">
         <h1>Users</h1>
-        <table>
+        <table id="table-users">
           <tr>
             <th>Id</th>
             <th>First Name</th>
@@ -117,7 +117,9 @@
           <input id="discount" name="discount" type="text" />
         </div>
       </div>
-      <button type="submit" name="submit" id="submit">Submit</button>
+      <button type="submit" name="submit" id="submit" onclick="add_product()">
+        Submit
+      </button>
     </div>
     <script src="js/admin.js"></script>
   </body>
