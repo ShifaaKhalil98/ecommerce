@@ -4,7 +4,21 @@ const name = document.getElementById('name')
 const products_container = document.getElementById('products_container')
 const login_status = document.getElementById('status')
 const men = document.getElementById('men')
+const women = document.getElementById('women')
+const select_price = document.getElementById('price')
+const select_color = document.getElementById('color')
+const select_brand = document.getElementById('brand')
+const select_material = document.getElementById('material')
 
+
+select_price.addEventListener('change', () => {
+    axios.get(`http://localhost/shoppero_backend/get_products.php?filter=price&value=${select_price.value}`).then((res)=>{
+    console.log(res.data);
+    displayProducts(res.data)
+    }).catch((err)=>{
+        console.error(err)
+    });
+})
 axios({
     "method": "get",
     "url": "http://localhost/shoppero_backend/check_login.php",
@@ -63,11 +77,53 @@ function fetchCat(gender) {
     }).catch((err)=>{
         console.error(err)
     });
+    if(gender == 'men') {
+        men.classList.add('selected')
+        women.classList.remove('selected')
+        men.onclick = null
+        men.innerHTML = `
+        <div class="subcategories">
+            <img onclick="fetchSubCat('clothes', 'men')" class="subcat" src="assets/clothes.png">
+            <img onclick="fetchSubCat('shoes', 'men')" class="subcat" src="assets/shoes.png">
+            <img onclick="fetchSubCat('accessories', 'men')" class="subcat" src="assets/accessories.png">
+            <img onclick="fetchSubCat('watches', 'men')" class="subcat" src="assets/watches.png">
+        </div>`
+        women.innerHTML = `
+        <div class="text-wrapper">
+                <h2>Women Collection</h2>
+            </div>
+            <img class="woman" src="assets/women_products.svg" alt="image">
+        `
+    } else {
+        men.classList.remove('selected')
+        women.onclick = null
+        men.onclick = 
+        women.classList.add('selected')
+        men.innerHTML = `<div class="image-wrapper">
+        <img class="man" src="assets/men_products.svg" alt="image">
+    </div>
+    <div class="text-wrapper">
+        <h2>Men Collection</h2>
+    </div>`
+        women.innerHTML = `<div class="subcategories">
+        <img onclick="fetchSubCat('clothes', 'women')" class="subcat" src="assets/clothes.png">
+        <img onclick="fetchSubCat('shoes', 'women')" class="subcat" src="assets/shoes.png">
+        <img onclick="fetchSubCat('accessories', 'women')" class="subcat" src="assets/accessories.png">
+        <img onclick="fetchSubCat('watches', 'women')" class="subcat" src="assets/watches.png">
+    </div>`
+
+    }
 }
-// save the id of the clicked product to the local storage
-// go to product js and add axious with the id in it
-//  then create a function based on that id with the html id's
-// 
+
+function fetchSubCat(subcat, gender) {
+    products_container.innerHTML = ''
+    axios.get(`http://localhost/shoppero_backend/get_products.php?category=${gender}&subcat=${subcat}`).then((res)=>{
+    console.log(res.data);
+    displayProducts(res.data)
+    }).catch((err)=>{
+        console.error(err)
+    });
+}
 
 
 

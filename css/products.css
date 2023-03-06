@@ -286,7 +286,37 @@ select {
     gap: 5%;
     width: 80%;
 }
+.selected {
+    background-color: rgba(164, 164, 164, 0.5);
+}
 
+.subcategories {
+    display: flex;
+    width: 90%;
+    margin: auto;
+    justify-content: space-between;
+}
+.subcat {
+    width: 20%;
+    border-radius: 1rem;
+}
+.subcat:hover {
+    filter: brightness(0.7);
+}
+select {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #333;
+  }
+  
+  /* Optional hover and focus styles */
+  select:hover,
+  select:focus {
+    border-color: #aaa;
+  }
 @media (max-width: 700px){
  
       #header {
