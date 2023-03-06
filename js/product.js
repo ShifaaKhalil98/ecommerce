@@ -33,13 +33,13 @@ axios({
             color.innerHTML += `<button type="button" value = ${r.color_name} onclick="switchColor('${r.color_name}')"></button>`
             color_images[r.color_name] = r.image
         }
-        if(!sizes.includes(r.size)) {
+        if(!sizes.includes(r.size) && r.size !=null) {
             console.log(r.size)
             sizes.push(r.size)
             size.innerHTML += `<button type="button">${r.size}</button>`
         }
     })
-    image.src = color_images[colors[1]]
+    image.src = color_images[colors[0]]
 }).catch((err) => {
     console.error(err)
 });
