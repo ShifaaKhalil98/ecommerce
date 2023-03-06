@@ -15,7 +15,7 @@ const login_popup = document.getElementById('loginPopup')
 const login_form = document.getElementById('loginForm')
 const search_bar = document.getElementById('search')
 const search_result = document.getElementById('search-results')
-
+let login_status = document.getElementById('status')
 let password_validated = false
 let position = 0
 let direction = 1
@@ -27,6 +27,21 @@ var moveText = setInterval(() => {
   }
   down_arrow.style.top = position + 'px'
 }, 50)
+
+axios({
+  "method": "get",
+  "url": "http://localhost/shoppero_backend/check_login.php",
+  withCredentials: true
+}).then((result) => {
+  console.log(result)
+  if(result.data.success) {
+    login_status.innerHTML = `Welcome, <b>${result.data.first_name}</b>`
+  } else {
+    console.log('noo')
+  }
+}).catch((err) => {
+  console.error(err)
+});
 
 //category-1
 var right_clicks_1 = 0;
@@ -107,8 +122,9 @@ search_bar.addEventListener('keyup', () => {
     }).then((result) => {
       console.log(result)
       search_result.innerHTML = ''
+      if(result.data.length > 0 ) {
+        
       result.data.forEach((result) => {
-        console.log(result.product_name)
         let product_card = `<div class="item-card">
         <div class="item-img"><img id="add-to-wishlist" src="./assets/heart.png" /><img class="product-image" src="./${result.image}" /></div>
         <div class="product_name"><h3>${result.product_name}</h3></div>
@@ -120,13 +136,18 @@ search_bar.addEventListener('keyup', () => {
 
       search_result.innerHTML += product_card;
       })
+      } else {
+        search_result.innerHTML = 'No results!'
+      }
     }).catch((err) => {
         console.error(err)
     });
     container.classList.add('move-to-side')
-    const animate = setTimeout(() => {
-      container.style.display = 'none';
-    }, 300)
+    if(container.style.display != 'none') {
+      const animate = setTimeout(() => {
+        container.style.display = 'none';
+      }, 300)
+    }
   } else {
     search_result.innerHTML = ''
     container.classList.remove('move-to-side')
@@ -189,6 +210,19 @@ password.addEventListener('keyup', () => {
   }
 })
 
+// function getProduct(id) {
+//   axios({
+//     "method": "get",
+//     "url": `http://localhost/shoppero_backend/getproduct.php?id=${id}`,
+//     "data": data
+//   }).then((result) => {
+//       console.log(result)
+      
+//   }).catch((err) => {
+//       console.error(err)
+//   });
+// }
+
 function submitForm() {
   if(validateForm()) {
     let email = document.getElementById('email').value;
@@ -225,7 +259,33 @@ function submitForm() {
 }
 
 function submitLogin() {
+  let email = document.getElementById('loginEmail').value;
+  let password = document.getElementById('loginPassword').value;
+  let status = document.getElementById('status')
+
+  let data = new FormData();
+    data.append('email', email);
+    data.append('password', password);
   
+    console.log('yea')
+
+  axios({
+    "method": "post",
+    "url": "http://localhost/shoppero_backend/login.php",
+    "data": data
+  }).then((result) => {
+      console.log(result)
+      if (result.data.status == "user logged in") {
+          status.innerHTML = `Welcome, <b>${result.data.first_name}</b>`
+          closeForm()
+      } else if(result.data.status == "password not validated") {
+        alert("Could not validate password!")
+      } else if(result.data.status == "email already exists") {
+        alert("This email already exists, try logging in instead")
+      }
+  }).catch((err) => {
+      console.error(err)
+  });
 }
 function validateForm() {
   var firstname = document.getElementById('firstname')
