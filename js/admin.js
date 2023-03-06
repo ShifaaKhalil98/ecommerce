@@ -1,3 +1,42 @@
+btn = document.getElementById("submit");
+btn.addEventListener("click", add_product);
+function uploadFiles() {
+  var files = document.getElementById("product-image").files;
+  if (files.length == 0) {
+    alert("Please first choose or drop any file(s)...");
+    return;
+  }
+  var filenames = "";
+  for (var i = 0; i < files.length; i++) {
+    filenames += files[i].name + "\n";
+  }
+  alert("Selected file(s) :\n____________________\n" + filenames);
+}
+function validateForm() {
+  let product_name = document.getElementById("product-name").value;
+  let description = document.getElementById("description").value;
+  let product_image = document.getElementById("product-image").value;
+  let product_size = document.getElementById("size").value;
+  let product_color = document.getElementById("color").value;
+  let product_material = document.getElementById("material").value;
+  let price = document.getElementById("price").value;
+  let main_color = document.getElementById("main-color").value;
+
+  if (
+    product_name == "" ||
+    description == "" ||
+    product_image == "" ||
+    product_size == "" ||
+    product_color == "" ||
+    product_material == "" ||
+    price == "" ||
+    main_color == ""
+  ) {
+    alert("All fields are required!");
+    return false;
+  }
+  return true;
+}
 function add_product() {
   if (validateForm()) {
     let product_name = document.getElementById("product-name").value;
@@ -6,9 +45,9 @@ function add_product() {
     let brand = document.getElementById("brand").value;
     let description = document.getElementById("description").value;
     let product_image = document.getElementById("product-image").value;
-    let product_size = document.getElementById("product-size").value;
-    let product_color = document.getElementById("product-color").value;
-    let product_material = document.getElementById("product-material").value;
+    let product_size = document.getElementById("size").value;
+    let product_color = document.getElementById("color").value;
+    let product_material = document.getElementById("material").value;
     let price = document.getElementById("price").value;
     let main_color = document.getElementById("main-color").value;
 
@@ -44,44 +83,6 @@ function add_product() {
         console.error(err);
       });
   }
-}
-function validateForm() {
-  let product_name = document.getElementById("product-name").value;
-  let description = document.getElementById("description").value;
-  let product_image = document.getElementById("product-image").value;
-  let product_size = document.getElementById("product-size").value;
-  let product_color = document.getElementById("product-color").value;
-  let product_material = document.getElementById("product-material").value;
-  let price = document.getElementById("price").value;
-  let main_color = document.getElementById("main-color").value;
-
-  if (
-    product_name.value.length == 0 ||
-    description.value.length == 0 ||
-    product_image.value.length == 0 ||
-    product_size.value.length == 0 ||
-    product_color.value.length == 0 ||
-    product_material.value.length == 0 ||
-    price.value.length == 0 ||
-    main_color.value.length == 0
-  ) {
-    alert("All fields are required!");
-    return false;
-  }
-  return true;
-}
-
-function uploadFiles() {
-  var files = document.getElementById("product-image").files;
-  if (files.length == 0) {
-    alert("Please first choose or drop any file(s)...");
-    return;
-  }
-  var filenames = "";
-  for (var i = 0; i < files.length; i++) {
-    filenames += files[i].name + "\n";
-  }
-  alert("Selected file(s) :\n____________________\n" + filenames);
 }
 
 // axios({
