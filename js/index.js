@@ -13,7 +13,9 @@ const register_popup = document.getElementById('registerPopup')
 const register_form = document.getElementById('registerForm')
 const login_popup = document.getElementById('loginPopup')
 const login_form = document.getElementById('loginForm')
-
+const search_bar = document.getElementById('search')
+const search_result = document.getElementById('search-results')
+let login_status = document.getElementById('status')
 let password_validated = false
 let position = 0
 let direction = 1
@@ -25,6 +27,21 @@ var moveText = setInterval(() => {
   }
   down_arrow.style.top = position + 'px'
 }, 50)
+
+axios({
+  "method": "get",
+  "url": "http://localhost/shoppero_backend/check_login.php",
+  withCredentials: true
+}).then((result) => {
+  console.log(result)
+  if(result.data.success) {
+    login_status.innerHTML = `Welcome, <b>${result.data.first_name}</b>`
+  } else {
+    console.log('noo')
+  }
+}).catch((err) => {
+  console.error(err)
+});
 
 //category-1
 var right_clicks_1 = 0;
@@ -97,6 +114,46 @@ down_btn.addEventListener("mouseover", function (event) {
   down_btn.style.cursor = "pointer";
 });
 
+search_bar.addEventListener('keyup', () => {
+  if(search_bar.value.length > 0) {
+    axios({
+      "method": "get",
+      "url": `http://localhost/shoppero_backend/search.php?query=${search_bar.value}`
+    }).then((result) => {
+      console.log(result)
+      search_result.innerHTML = ''
+      if(result.data.length > 0 ) {
+        
+      result.data.forEach((result) => {
+        let product_card = `<div class="item-card">
+        <div class="item-img"><img id="add-to-wishlist" src="./assets/heart.png" /><img class="product-image" src="./${result.image}" /></div>
+        <div class="product_name"><h3>${result.product_name}</h3></div>
+        <div class="flex-box">
+          <h3>$${result.price}</h3>
+          <button type="button">Add to cart</button>
+        </div>
+      </div>`
+
+      search_result.innerHTML += product_card;
+      })
+      } else {
+        search_result.innerHTML = 'No results!'
+      }
+    }).catch((err) => {
+        console.error(err)
+    });
+    container.classList.add('move-to-side')
+    if(container.style.display != 'none') {
+      const animate = setTimeout(() => {
+        container.style.display = 'none';
+      }, 300)
+    }
+  } else {
+    search_result.innerHTML = ''
+    container.classList.remove('move-to-side')
+    container.style.display = 'block';
+  }
+})
 function openLogin() {
       register_popup.classList.remove('openForm');
       login_popup.classList.remove('openForm');
@@ -153,12 +210,26 @@ password.addEventListener('keyup', () => {
   }
 })
 
+// function getProduct(id) {
+//   axios({
+//     "method": "get",
+//     "url": `http://localhost/shoppero_backend/getproduct.php?id=${id}`,
+//     "data": data
+//   }).then((result) => {
+//       console.log(result)
+      
+//   }).catch((err) => {
+//       console.error(err)
+//   });
+// }
+
 function submitForm() {
   if(validateForm()) {
     let email = document.getElementById('email').value;
     let password = document.getElementById('password').value;
     let first_name = document.getElementById('firstname').value;
     let last_name = document.getElementById('lastname').value;
+    let status = document.getElementById('status')
 
     let data = new FormData();
     data.append('email', email);
@@ -168,12 +239,12 @@ function submitForm() {
 
     axios({
         "method": "post",
-        "url": "http://localhost/e-commerce_backend/signup.php",
+        "url": "http://localhost/shoppero_backend/signup.php",
         "data": data
     }).then((result) => {
         console.log(result)
         if (result.data.status == "user added") {
-            alert("signed up")
+            status.innerHTML = `Welcome, <b>${result.data.first_name}</b>`
             closeForm()
         } else if(result.data.status == "password not validated") {
           alert("Could not validate password!")
@@ -188,7 +259,33 @@ function submitForm() {
 }
 
 function submitLogin() {
+  let email = document.getElementById('loginEmail').value;
+  let password = document.getElementById('loginPassword').value;
+  let status = document.getElementById('status')
+
+  let data = new FormData();
+    data.append('email', email);
+    data.append('password', password);
   
+    console.log('yea')
+
+  axios({
+    "method": "post",
+    "url": "http://localhost/shoppero_backend/login.php",
+    "data": data
+  }).then((result) => {
+      console.log(result)
+      if (result.data.status == "user logged in") {
+          status.innerHTML = `Welcome, <b>${result.data.first_name}</b>`
+          closeForm()
+      } else if(result.data.status == "password not validated") {
+        alert("Could not validate password!")
+      } else if(result.data.status == "email already exists") {
+        alert("This email already exists, try logging in instead")
+      }
+  }).catch((err) => {
+      console.error(err)
+  });
 }
 function validateForm() {
   var firstname = document.getElementById('firstname')
