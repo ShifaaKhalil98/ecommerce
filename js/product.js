@@ -58,3 +58,5 @@ heart.addEventListener('click', () => {
       console.error(error);
     });
 });
+// add value attribute in html
+// 0
