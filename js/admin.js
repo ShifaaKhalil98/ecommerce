@@ -1,61 +1,3 @@
-var _name = document.getElementById("name");
-var phone_number = document.getElementById("phone-number");
-var email = document.getElementById("email");
-var edit_btn = document.getElementById("edit");
-var btn_click = 0;
-edit_btn.addEventListener("click", function () {
-  _name.removeAttribute("readonly");
-  phone_number.removeAttribute("readonly");
-  email.removeAttribute("readonly");
-  edit_btn.innerHTML = "save";
-  _name.style.border = "2px solid black";
-  phone_number.style.border = "2px solid black";
-  email.style.border = "2px solid black";
-  if (btn_click == 0) btn_click++;
-  else {
-    _name.setAttribute("readonly", true);
-    phone_number.setAttribute("readonly", true);
-    email.setAttribute("readonly", true);
-    edit_btn.innerHTML = "edit";
-    _name.style.border = "none";
-    phone_number.style.border = "none";
-    email.style.border = "none";
-    btn_click = 0;
-  }
-});
-
-function display_users(){
-table_users = document.getElementById("table-users");
-for (//////////////) {
-  e = document.createElement("tr");
-  for(i = 0; i < 7; i++){
-    d = document.createElement("td");
-    d.innerText = /////////////////;
-    table_users.appendChild(e);
-    e.appendChild(d);
-  }
-}
-axios({
-  method: "post",
-  url: "http://localhost/shoppero-backend/admin.php",
-  data: data,
-})
-  .then((result) => {
-    console.log(result);
-    if (result.data.status == "exist") {
-      ////////////////
-      closeForm();
-    } else if (result.data.status == "empty") {
-      alert("No users to display!");
-    }
-  })
-  .catch((err) => {
-    console.error(err);
-  });
-}
-}
-}
-
 function add_product() {
   if (validateForm()) {
     let product_name = document.getElementById("product-name").value;
@@ -86,16 +28,16 @@ function add_product() {
 
     axios({
       method: "post",
-      url: "http://localhost/shoppero-backend/insert-product.php",
+      url: "http://localhost/GroupProject-2/shoppero-backend/insert-product.php",
       data: data,
     })
       .then((result) => {
         console.log(result);
         if (result.data.status == "added") {
-          alert("Product added successfully");
+          alert("product added successfully");
           closeForm();
         } else if (result.data.status == "exists") {
-          alert("Product already exists");
+          alert("Product already exists!");
         }
       })
       .catch((err) => {
@@ -103,7 +45,6 @@ function add_product() {
       });
   }
 }
-
 function validateForm() {
   let product_name = document.getElementById("product-name").value;
   let description = document.getElementById("description").value;
@@ -129,3 +70,72 @@ function validateForm() {
   }
   return true;
 }
+
+function uploadFiles() {
+  var files = document.getElementById("product-image").files;
+  if (files.length == 0) {
+    alert("Please first choose or drop any file(s)...");
+    return;
+  }
+  var filenames = "";
+  for (var i = 0; i < files.length; i++) {
+    filenames += files[i].name + "\n";
+  }
+  alert("Selected file(s) :\n____________________\n" + filenames);
+}
+
+// axios({
+//   method: "POST",
+//   url: "http://localhost/GroupProject-2/shoppero-backend/display-users.php"
+// }).then((result) => {
+//   console.log(result);
+// });
+
+// function display_users(){
+// table_users = document.getElementById("table-users");
+// for (//////////////) {
+//   e = document.createElement("tr");
+//   for(i = 0; i < 7; i++){
+//     d = document.createElement("td");
+//     d.innerText = /////////////////;
+//     table_users.appendChild(e);
+//     e.appendChild(d);
+//   }
+// }
+// axios({
+//   method: "post",
+//   url: "http://localhost/GroupProject-2/shoppero-backend/display-users.php",
+//   data: data,
+// })
+//   .then((result) => {
+//     console.log(result);
+//     if (result.data.status == "exist") {
+//       ////////////////
+//       closeForm();
+//     } else if (result.data.status == "empty") {
+//       alert("No users to display!");
+//     }
+//   })
+//   .catch((err) => {
+//     console.error(err);
+//   });
+// }
+// }
+
+// axios({
+//   method: "POST",
+//   url: "http://localhost/GroupProject-2/shoppero-backend/display-users.php",
+//   data: data,
+// })
+//   .then((result) => {
+//     console.log(result);
+//     if (result.data.status == "exist") {
+//       alert("displayed");
+//       closeForm();
+//     } else if (result.data.status == "empty") {
+//       alert("empty");
+//     }
+//   })
+//   .catch((err) => {
+//     console.error(err);
+//   });
