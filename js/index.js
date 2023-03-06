@@ -15,10 +15,19 @@ const login_popup = document.getElementById('loginPopup')
 const login_form = document.getElementById('loginForm')
 const search_bar = document.getElementById('search')
 const search_result = document.getElementById('search-results')
-const login_status = document.getElementById('status')
+const items1 = document.getElementById('items-1')
+const items2 = document.getElementById('items-2')
+const items3 = document.getElementById('items-3')
+const items4 = document.getElementById('items-4')
+const login_status = document.getElementById('login-text')
+const logged_in = document.getElementById('logged-in')
+const welcome = document.getElementById('welcome')
 let password_validated = false
 let position = 0
 let direction = 1
+
+
+
 
 var moveText = setInterval(() => {
   position += direction
@@ -35,13 +44,89 @@ axios({
 }).then((result) => {
   console.log(result)
   if(result.data.success) {
-    login_status.innerHTML = `Welcome, <b>${result.data.first_name}</b>`
+    console.log('loggedin')
+    login_status.style.display = 'none'
+    logged_in.style.display = 'inline-block'
+    welcome.innerHTML = 'Welcome, ' + result.data.first_name
   } else {
     console.log('noo')
   }
 }).catch((err) => {
   console.error(err)
 });
+
+axios({
+  "method": "get",
+  "url": "http://localhost/shoppero_backend/get_products.php?category=men&subcat=clothes",
+}).then((result) => {
+  console.log(result)
+  displayProducts(result.data, items1)
+}).catch((err) => {
+  console.error(err)
+});
+
+axios({
+  "method": "get",
+  "url": "http://localhost/shoppero_backend/get_products.php?category=women",
+}).then((result) => {
+  console.log(result)
+  displayProducts(result.data, items2)
+}).catch((err) => {
+  console.error(err)
+});
+
+axios({
+  "method": "get",
+  "url": "http://localhost/shoppero_backend/get_products.php?category=men&subcat=shoes",
+}).then((result) => {
+  console.log(result)
+  displayProducts(result.data, items3)
+}).catch((err) => {
+  console.error(err)
+});
+
+axios({
+  "method": "get",
+  "url": "http://localhost/shoppero_backend/get_products.php?category=men&subcat=clothes",
+}).then((result) => {
+  console.log(result)
+  displayProducts(result.data, items4)
+}).catch((err) => {
+  console.error(err)
+});
+
+// axios.get(`http://localhost/shoppero_backend/get_products.php?category=men`).then((res)=>{
+//     console.log(res.data, 'okk');
+//     displayProducts(res.data, items1)
+// }).catch((err)=>{
+//     console.error(err)
+// });
+
+function logOut() {
+  axios({
+    "method": "get",
+    "url": "http://localhost/shoppero_backend/logout.php",
+  }).then((result) => {
+    login_status.style.display = 'block'
+    logged_in.style.display = 'none'
+  }).catch((err) => {
+    console.error(err)
+  });
+}
+let displayProducts= (data, div)=>{
+  data.forEach((element) => {
+      console.log(element)
+      div.innerHTML+=`
+      <div class="item-card">
+      <div class="item-img"><img id="add-to-wishlist" src="./assets/heart.png" /><img class="product-image-small" src="./${element.image}" /></div>
+        <div class="product_name_small">${element.product_name}</div>
+        <div class="flex-box">
+          <h3>$45</h3>
+          <button type="button">Add to cart</button>
+        </div>
+      </div>` 
+  })
+  }
 
 //category-1
 var right_clicks_1 = 0;
@@ -125,7 +210,7 @@ search_bar.addEventListener('keyup', () => {
       if(result.data.length > 0 ) {
         
       result.data.forEach((result) => {
-        let product_card = `<div class="item-card">
+        let product_card = `<div class="item-card-search">
         <div class="item-img"><img id="add-to-wishlist" src="./assets/heart.png" /><img class="product-image" src="./${result.image}" /></div>
         <div class="product_name"><h3>${result.product_name}</h3></div>
         <div class="flex-box">
@@ -244,7 +329,9 @@ function submitForm() {
     }).then((result) => {
         console.log(result)
         if (result.data.status == "user added") {
-            status.innerHTML = `Welcome, <b>${result.data.first_name}</b>`
+          login_status.style.display = 'none'
+          logged_in.style.display = 'inline-block'
+          welcome.innerHTML = 'Welcome, ' + result.data.first_name
             closeForm()
         } else if(result.data.status == "password not validated") {
           alert("Could not validate password!")
@@ -276,7 +363,9 @@ function submitLogin() {
   }).then((result) => {
       console.log(result)
       if (result.data.status == "user logged in") {
-          status.innerHTML = `Welcome, <b>${result.data.first_name}</b>`
+        login_status.style.display = 'none'
+        logged_in.style.display = 'inline-block'
+        welcome.innerHTML = 'Welcome, ' + result.data.first_name
           closeForm()
       } else if(result.data.status == "password not validated") {
         alert("Could not validate password!")

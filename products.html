@@ -27,7 +27,15 @@
           <a href="">SALES</a>
         </div>
         <div id="login-cart" class="flex-box">
-          <p id="status" onclick="openLogin()">LOG IN</p>
+            <div id="login-text" class="login-text"><p onclick="openLogin()">LOG IN</p></div>
+            <div id="logged-in" class="dropdown">
+              <p id="welcome"></p>
+              <div class="dropdown-content">
+                <a href="profile.html">Edit Profile</a>
+                <a href="favorites.html">Wishlist</a>
+                <a href="#">Log Out</a>
+              </div>
+            </div>
           <img id="open-cart" src="./assets/open-cart.png" />
         </div>
       </div>
@@ -70,9 +78,9 @@
             <div class="filter_group">
                 <label for="brand_filter">Filter by brand:</label>
                 <select id="brand_filter" name="brand_filter">
-                    <option value="nike">Nike</option>
-                    <option value="adidas">Adidas</option>
-                    <option value="puma">Puma</option>
+                    <option value="Nike">Nike</option>
+                    <option value="Adidas">Adidas</option>
+                    <option value="Puma">Puma</option>
                     <option value="reebok">Reebok</option>
                 </select>
             </div>
