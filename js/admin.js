@@ -6,55 +6,30 @@ container = document.getElementsByClassName("container")[0];
 _login = document.getElementsByClassName("login")[0];
 
 function submitLogin() {
-  if (validateForm()) {
-    _login.style.display = "none";
-    container.style.display = "block";
+  let admin_email = document.getElementById("admin_email").value;
+  let admin_password = document.getElementById("admin_password").value;
+  let data = new FormData();
+  data.append("admin_email", admin_email);
+  data.append("admin_password", admin_password);
 
-    let admin_email = document.getElementById("admin_email").value;
-    let admin_password = document.getElementById("admin_password").value;
-    let data = new FormData();
-    data.append("admin_email", admin_email);
-    data.append("admin_password", admin_password);
-
-    axios({
-      method: "post",
-      url: "http://localhost/shoppero_backend/admin-login.php",
-      data: data,
+  axios({
+    method: "post",
+    url: "http://localhost/GroupProject-2/shoppero-backend/admin-login.php",
+    data: data,
+  })
+    .then((result) => {
+      console.log(result);
+      if (result.data.status == "admin logged in") {
+        _login.style.display = "none";
+        container.style.display = "block";
+        console.log("done");
+      } else if (result.data.status == "admin does not exist") {
+        alert("Admin does not exist");
+      }
     })
-      .then((result) => {
-        console.log(result);
-        if (result.data.status == "admin logged in") {
-          closeForm();
-        } else if (result.data.status == "password not validated") {
-          alert("Could not validate password!");
-        } else if (result.data.status == "email already exists") {
-          alert("This email already exists, try logging in instead");
-        }
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  }
-}
-
-function validateForm() {
-  var admin_email = document.getElementById("admin_email");
-  var admin_password = document.getElementById("admin_password");
-  var error = document.getElementById("errormessage");
-  var email_regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-  error.innerHTML = "";
-
-  if (!admin_email.value.match(email_regex) || email.value.length == 0) {
-    error.innerHTML = "Please provide a valid email!";
-    email.classList.add("errorField");
-    return false;
-  }
-  if (!password_validated) {
-    error.innerHTML = "Please fix your password!";
-    password.classList.add("errorField");
-    return false;
-  }
-  return true;
+    .catch((err) => {
+      console.error(err);
+    });
 }
 
 function uploadFiles() {
