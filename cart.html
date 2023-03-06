@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SHOPPERO | Cart</title>
     <link rel="stylesheet" type="text/css" href="css/cart.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.4/axios.min.js"></script>
 </head>
 <body>
     <div id="header" class="flex-box">
@@ -27,22 +28,22 @@
       </div>
       <div class="shop_clear">
         <h1 class="shopping_cart">shopping cart</h1>
-      <p class="clear">clear</p>
+      <p class="clear" id="clear">clear</p>
       </div>
       
       <div class="items">
       <div class="item_container">
-        <img class="item_img" src="assets/item1.png" />
+        <img class="item_img" id="item_img" src="assets/item1.png" />
         <div class="name_description">
-        <p class="item_name">items name </p>
-        <p class="item_descrp">Description</p>
+        <p class="item_name" id="item_name">items name </p>
+        <p class="item_descrp" id="item_description">Description</p>
         </div>
         <form>
             <label for="quantity">quantity:</label>
             <input class="quantity_input" type="text">
         </form>
         <p>25$</p>
-        <button class="remove_button">x</button>
+        <button class="remove_button" >x</button>
         </div>
       </div>
       <div class="items">
