@@ -204,9 +204,19 @@ button:hover {
 .color button[value="gray"] {
     background-color: rgb(106, 106, 106);
 }
+.color button[value="white"] {
+    background-color: rgb(236, 236, 236);
+}
+.color button[value="gold"] {
+    background-color: rgb(228, 201, 45);
+}
+.color button[value="brown"] {
+    background-color: rgb(120, 68, 28);
+}
 .color button:hover {
     border: 2px solid rgb(95, 88, 88);
 }
+
 .type {
     font-weight: 500;
 }

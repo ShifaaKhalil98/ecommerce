@@ -7,16 +7,20 @@ const urlParams = new URLSearchParams(window.location.search);
 const type = document.getElementById('type')
 const image = document.getElementById('image')
 const id = urlParams.get('id');
+const size = document.getElementById('size')
 let colors = []
 let sizes = []
 let color_images = {}
+console.log(id)
 const heart = document.getElementById('add-to-wishlist');
 axios({
     "method": "get",
     "url": `http://localhost/shoppero_backend/get_product.php?id=${id}`,
     
 }).then((result) => {
+    console.log(result)
     result.data.forEach((r) => {
+        // console.log('kk')
         if (r.for_men == 1) {
             type.innerHTML = "Men's " + r.subcategory_name
         } else {
@@ -29,11 +33,13 @@ axios({
             color.innerHTML += `<button type="button" value = ${r.color_name} onclick="switchColor('${r.color_name}')"></button>`
             color_images[r.color_name] = r.image
         }
-        if(!sizes.includes(r.size)) {
+        if(!sizes.includes(r.size) && r.size !=null) {
+            console.log(r.size)
             sizes.push(r.size)
+            size.innerHTML += `<button type="button">${r.size}</button>`
         }
     })
-    image.src = color_images[colors[1]]
+    image.src = color_images[colors[0]]
 }).catch((err) => {
     console.error(err)
 });
