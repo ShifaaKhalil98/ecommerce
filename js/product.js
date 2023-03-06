@@ -38,6 +38,7 @@ axios({
             sizes.push(r.size)
             size.innerHTML += `<button type="button">${r.size}</button>`
         }
+        price.innerHTML = "$" + r.price
     })
     image.src = color_images[colors[0]]
 }).catch((err) => {
