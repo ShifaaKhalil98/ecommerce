@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> <!--Product Name--> </title>
+    <title> Products </title>
     <link rel="stylesheet" type="text/css" href="css/products.css">
 </head>
 
@@ -32,7 +32,7 @@
         </div>
       </div>
     <div class="categories">
-        <div class="men_category">
+        <div id="men" onclick="fetchCat('men')" class="men_category">
             <div class="image-wrapper">
                 <img class="man" src="assets/men_products.svg" alt="image">
             </div>
@@ -40,7 +40,7 @@
                 <h2>Men Collection</h2>
             </div>
         </div>
-        <div class="women_category">
+        <div id="women" onclick="fetchCat('women')" class="women_category">
             <div class="text-wrapper">
                 <h2>Women Collection</h2>
             </div>

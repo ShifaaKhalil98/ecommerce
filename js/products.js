@@ -3,6 +3,7 @@ const price = document.getElementById('price')
 const name = document.getElementById('name')
 const products_container = document.getElementById('products_container')
 const login_status = document.getElementById('status')
+const men = document.getElementById('men')
 
 axios({
     "method": "get",
@@ -30,6 +31,7 @@ let displayProduct = (data)=>{
 
 }
 let displayProducts= (data)=>{
+    products_container.innerHTML = ''
     data.forEach((element) => {
         console.log(element)
         products_container.innerHTML+=`<div class="item-card" onclick="window.location.href = window.location.href = 'product.html?id=${element.id}';">
@@ -42,7 +44,6 @@ let displayProducts= (data)=>{
       </div>` 
 
     })
-  products.appendChild(element);
     }
     const addtofavorites=(id)=>{
       axios.post('http://localhost/shoppero_backend/add_to_favorites.php', {  user_id: userID, product_id: productID})
@@ -54,6 +55,15 @@ let displayProducts= (data)=>{
     });
     }
 
+function fetchCat(gender) {
+    products_container.innerHTML = ''
+    axios.get(`http://localhost/shoppero_backend/get_products.php?category=${gender}`).then((res)=>{
+    console.log(res.data);
+    displayProducts(res.data)
+    }).catch((err)=>{
+        console.error(err)
+    });
+}
 // save the id of the clicked product to the local storage
 // go to product js and add axious with the id in it
 //  then create a function based on that id with the html id's
