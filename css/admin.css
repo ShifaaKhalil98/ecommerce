@@ -1,9 +1,10 @@
 body {
   padding: 0;
+  margin: 0;
 }
 .container {
   width: 70%;
-  display: block;
+  display: none;
   margin-left: auto;
   margin-right: auto;
   padding-bottom: 30px;
@@ -145,4 +146,102 @@ table select {
 }
 button {
   cursor: pointer;
+}
+/* login */
+.errormessage {
+  color: rgb(255, 83, 83);
+}
+.loginForm h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+.loginForm input {
+  border: none;
+  background-color: rgb(209, 209, 209);
+  margin: 0.5rem 0rem;
+  padding: 1rem;
+  box-sizing: border-box;
+  border-radius: 0.5rem;
+  font-family: "Montserrat";
+  transition: all 0.3s;
+}
+.loginForm input:focus {
+  outline: none;
+  background-color: rgb(182, 182, 182);
+  transition: all 0.2s;
+}
+.errorField {
+  outline: 0.2rem rgb(255, 83, 83) solid;
+}
+.login {
+  height: 100vh;
+  background: url(../assets/bg.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-top: 8%;
+}
+.loginForm {
+  width: 30%;
+  background-color: rgb(227, 227, 227);
+  padding: 3rem;
+  box-sizing: border-box;
+  margin: auto;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+}
+.loginForm button {
+  border: none;
+  background-color: #e96e19;
+  margin: 0.5rem 0rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  font-family: "Montserrat";
+  transition: all 0.2s;
+}
+.loginForm button:hover {
+  cursor: pointer;
+  background-color: rgb(254, 216, 99);
+  transition: all 0.3s;
+}
+.xclose {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  width: 5%;
+  cursor: pointer;
+}
+.validation {
+  max-height: 0px;
+  opacity: 0;
+  z-index: -1;
+  transition: all 0.3s;
+}
+.validationOpened {
+  max-height: 15rem;
+  opacity: 1;
+  transition: all 0.3s;
+}
+.correct {
+  color: green;
+  padding-left: 1rem;
+  transition: all 0.3s;
+}
+.correct:before {
+  position: relative;
+  left: -1rem;
+  content: "✔";
+  transition: all 0.3s;
+}
+.error {
+  color: red;
+  padding-left: 2rem;
+  transition: all 0.3s;
+}
+.error:before {
+  position: relative;
+  left: -2rem;
+  content: "✖";
+  transition: all 0.3s;
 }
