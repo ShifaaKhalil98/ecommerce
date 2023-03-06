@@ -137,3 +137,34 @@ body {
     width: 35%;
     height: 50%;
 }
+.image-wrapper {
+    margin-right: 20px;
+}
+
+.image-wrapper img {
+    display: block;
+    position: relative;
+    top: -60px;
+
+}
+
+.woman {
+    display: block;
+    position: relative;
+    top: -60px;
+    left: 20px;
+}
+
+.image-wrapper_women img {
+    display: block;
+    position: relative;
+    top: 20px;
+    left: 300px;
+}
+
+.text-wrapper h2 {
+    margin: 0 0 0 10px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    font: mon-bold;
+}
