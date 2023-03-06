@@ -33,23 +33,37 @@ let displayProducts= (data)=>{
     data.forEach((element) => {
         console.log(element)
         products_container.innerHTML+=`<div class="item-card" onclick="window.location.href = window.location.href = 'product.html?id=${element.id}';">
-        <div class="item-img"><img id="add-to-wishlist" src="./assets/heart.png" /><img class="product-image" src="./${element.image}" /></div>
+        <div onclick="addtofavorites(${element.id})" class="item-img"><img id="add-to-wishlist" src="./assets/heart.png" /><img class="product-image" src="./${element.image}" /></div>
         <div class="product_name"><h3>${element.product_name}</h3></div>
         <div class="flex-box">
           <h3>$${element.price}</h3>
           <button type="button">Add to cart</button>
         </div>
       </div>` 
-//    element.addEventListener('click', () => {
-    
-//     window.location.href = `/product.html?id=${element.id}`;
-//   });
-    })
-        
 
+    })
   products.appendChild(element);
     }
-
+    heart.addEventListener('click', () => {
+      const user =  $user_id;
+      const product = $product_id; 
+      axios.post('http://localhost/shoppero_backend/add_to_favorites.php', { user, product })
+        .then((response) => {
+          console.log(response.data);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    });
+    const addtofavorites=(id)=>{
+      axios.post('http://localhost/shoppero_backend/add_to_favorites.php', { user, product })
+    .then((response) => {
+      console.log(response.data);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+    }
 
 // save the id of the clicked product to the local storage
 // go to product js and add axious with the id in it

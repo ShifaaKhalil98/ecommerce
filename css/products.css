@@ -286,3 +286,26 @@ select {
     gap: 5%;
     width: 80%;
 }
+
+@media (max-width: 700px){
+ 
+      #header {
+        font-size: 0.8rem;
+      }
+     .categories {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 70px 0;
+    height: 30vh;
+    text-align: center;
+}
+.image-wrapper,.woman{
+    display: none;
+}
+.filter_group{
+    display: none;
+}
+}
+

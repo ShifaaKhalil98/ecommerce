@@ -12,6 +12,7 @@ let colors = []
 let sizes = []
 let color_images = {}
 console.log(id)
+const heart = document.getElementById('add-to-wishlist');
 axios({
     "method": "get",
     "url": `http://localhost/shoppero_backend/get_product.php?id=${id}`,
@@ -46,3 +47,15 @@ axios({
 function switchColor(color) {
     image.src = color_images[String(color)]
 }
+
+heart.addEventListener('click', () => {
+  const user =  sessionStorage.getItem('user_id');
+  const product = 
+  axios.post('http://localhost/shoppero_backend/add_to_favorites.php', { user, product })
+    .then((response) => {
+      console.log(response.data);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+});
