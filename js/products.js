@@ -66,10 +66,6 @@ axios.get(`http://localhost/shoppero_backend/get_products.php`).then((res)=>{
 }).catch((err)=>{
     console.error(err)
 });
-
-let displayProduct = (data)=>{
-
-}
 let displayProducts= (data)=>{
     products_container.innerHTML = ''
     data.forEach((element) => {
@@ -78,7 +74,7 @@ let displayProducts= (data)=>{
         <div onclick="addtofavorites(${element.id})" class="item-img"><img id="add-to-wishlist" src="./assets/heart.png" /><img class="product-image" src="./${element.image}" /></div>
         <div class="product_name"><h3>${element.product_name}</h3></div>
         <div class="flex-box">
-          <h3>$${element.price}</h3>
+          <h3>${element.price}</h3>
           <button type="button">Add to cart</button>
         </div>
       </div>` 
@@ -86,7 +82,7 @@ let displayProducts= (data)=>{
     })
     }
     const addtofavorites=(id)=>{
-      axios.post('http://localhost/shoppero_backend/add_to_favorites.php', {  user_id: userID, product_id: productID})
+      axios.get('http://localhost/shoppero_backend/add_to_favorites.php', {  user_id: userID, product_id: productID})
     .then((response) => {
       console.log(response.data);
     })

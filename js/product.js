@@ -50,7 +50,7 @@ function switchColor(color) {
 }
 
 heart.addEventListener('click', () => {
-  axios.post('http://localhost/shoppero_backend/add_to_favorites.php', { user_id: userID, product_id: productID })
+  axios.get('http://localhost/shoppero_backend/add_to_favorites.php', { user_id: userID, product_id: productID })
     .then((response) => {
       console.log(response.data);
     })
