@@ -10,29 +10,34 @@
 </head>
 
 <body>
-    <div id="header" class="flex-box">
-        <div id="navigation" class="flex-box">
-            <a href="index.html">HOME</a>
-            <a href="products.html">PRODUCTS</a>
-            <a href="">SALES</a>
+    <div class="search-container">
+        <div class="input-container">
+          <input
+            id="search"
+            type="text"
+            placeholder="Black shoes, white shirt..."
+            autocomplete='off'
+          />
         </div>
-        <div id="search-container">
-            <div id="search" class="flex-box">
-                <!-- <img id="search-icon" src="./assets/search-icon.png" /> -->
-                <input type="text" placeholder="Black shoes, white shirt..." />
+      </div>
+    
+        <div class="header flex-box">
+            <div class="navigation flex-box">
+              <a href="index.html">HOME</a>
+              <a href="products.html">PRODUCTS</a>
+              <a href="">SALES</a>
             </div>
-        </div>
-        <div id="login-cart" class="flex-box">
-            <p>LOG IN</p>
-            <img id="open-cart" src="./assets/open-cart.png" />
-        </div>
-    </div>
+            <div id="login-cart" class="flex-box">
+              <p id="status" onclick="openLogin()">LOG IN</p>
+              <img id="open-cart" src="./assets/open-cart.png" />
+            </div>
+          </div>
     <div class="main">
         <div class="left_column">
-            <img src="assets/sandal.svg" alt="shoes">
+            <img id="image" src="assets/sandal.svg">
         </div>
         <div class="right-column details_container">
-            <div class="type">MEN'S SANDALS</div>
+            <div id="type" class="type">MEN'S SANDALS</div>
             <div class="name_like_container">
                 <div id="name" class="name">HUNK - Toffee</div>
                 <div class="like" id="add-to-wishlist"><img src="./assets/heart.png" /></div>
@@ -47,19 +52,11 @@
             <form>
                 <label for="color">SELECT COLOR:</label>
                 <div id="color" class="color">
-                    <button value="red"></button>
-                    <button value="blue"></button>
-                    <button value="green"></button>
-                    <button value="yellow"></button>
                 </div>
             </form>
             <form>
                 <label for="size">SELECT SIZE:</label>
                 <div id="size" class="size">
-                    <button value="5">5</button>
-                    <button value="6">6</button>
-                    <button value="7">7</button>
-                    <button value="8">8</button>
                 </div>
             </form>
         </div>  
