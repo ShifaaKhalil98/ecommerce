@@ -78,3 +78,27 @@ body {
     justify-content: flex-end;
     gap: 5%;
 }
+.containers{
+    display: flex;
+    flex-direction: row;
+    
+}
+.left-cont{
+    display: flex;
+    flex-direction: column;
+    margin-left: 4%;
+   
+}
+.right-cont{
+    display: flex;
+    flex-direction: column;
+    
+
+}
+.box{
+    margin-bottom: 3%;
+    width:200% ;
+
+background: #D9D9D9;
+
+}
