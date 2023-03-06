@@ -3,58 +3,61 @@
 Shoppero Ecommerce Website
 Welcome to Shoppero, a modern ecommerce website that allows users to browse products, search and filter products, add products to cart, favorite products, checkout (without payment), and much more. This website uses HTML, CSS, vanilla PHP, and JavaScript, with MySQL as the database. In this README, we will provide a thourough overview of the different aspects of this project.
 
-## H2 Team Members
+## Team Members
 
-Ayman Hajjar - Team Leader
-Shifaa Khalil
-Salman Moussa
-Mohamad Shoumar
+- Ayman Hajjar - Team Leader
+- Shifaa Khalil
+- Salman Moussa
+- Mohamad Shoumar
 
-## H2Color Palette
+## Color Palette
 
-#006D77 (orangO)
-#FFD166 (Yellow)
+- #FFA500 (Orange)
+- #FFD166 (Yellow)
 
-## H2 User Stories
+## User Stories
 
-User-Facing Features
-As a user, I want to be able to view all products available on the website.
-As a user, I want to be able to filter products by category.
-As a user, I want to be able to search for specific products by name.
-As a user, I want to be able to add products to my cart.
-As a user, I want to be able to view my cart and update the quantity of products.
-As a user, I want to be able to remove products from my cart.
-As a user, I want to be able to proceed to checkout and enter my shipping and payment information.
-As a user, I want to be able to review my order before submitting it.
-Admin-Facing Features
-As an admin, I want to be able to add new products to the website.
-As an admin, I want to be able to edit existing products on the website.
-As an admin, I want to be able to delete products from the website.
-As an admin, I want to be able to view all orders placed on the website.
-As an admin, I want to be able to update the status of each order.
-Wireframes
-Page Name Wireframe
-Home Page Home Page Wireframe
-Product Page Product Page Wireframe
-Cart Page Cart Page Wireframe
-Checkout Page Checkout Page Wireframe
-Admin Dashboard Admin Dashboard Wireframe
-Admin Products Page Admin Products Page Wireframe
-Admin Orders Page Admin Orders Page Wireframe
-Implementation
-Page Name Screenshot
-Home Page Home Page Implementation
-Product Page Product Page Implementation
-Cart Page Cart Page Implementation
-Checkout Page Checkout Page Implementation
-Admin Dashboard Admin Dashboard Implementation
-Admin Products Page Admin Products Page Implementation
-Admin Orders Page Admin Orders Page Implementation
-How to Run
-To run Shoppero locally, follow these steps:
+- As a customer, I want to be able to create and access my account so that I can make purchases and save my favorite items.
+- As a customer, I want to be able to reset my password on an online shopping website if I forget it, so that I can regain access to my account.
+- As a customer searching for a product, I need to be able to have a look at all the items, so that I am likely to find what I am looking for.
+- As a customer, I want to be able to mark my favorite products so that I can easily find and keep track of them for future reference.
+- As a customer, I want to be able to edit my profile information so that I can update my shipping address.
+- As a customer, I want to be able to add an item to my cart so that I can order multiple items at the same time.
+- As a customer, I want to be able to view detailed information about a product so that I can make an informed decision about whether to purchase the product.
+- As a customer, I want to check my cart so I can make adjustments prior to checkout.
+- As a customer, I want to be able to complete the checkout process on an online shopping website so that I can purchase the products in my cart and have them delivered to me.
 
-Clone the repository to your local machine.
-Create a new MySQL database and import the database.sql file.
-Update the database connection details in config.php.
-Start a local PHP server.
-Visit `http
+## Admin Stories
+
+- As an admin, I want to be able to add, edit, and remove products so that I can manage the product inventory and ensure that the website offers up-to-date and accurate product information.
+
+- As an admin, I want to be able to view and manage the user accounts so that I can ensure that the website is providing a safe and secure user experience.
+
+## Wireframes
+
+![Alt text](./assets/wire-frames.png)
+
+## Implementation
+
+| Section      | Screenshot                                 |
+| ------------ | ------------------------------------------ |
+| Home Page    | ![Home Page](./screenshots/home.png)       |
+| Product Page | ![Product Page](./screenshots/product.png) |
+| Cart Page    | ![Cart Page](./screenshots/cart.png)       |
+
+## How to Run
+
+### Prerequisites:
+
+- A local development environment (e.g. XAMPP, MAMP, WAMP, LAMP) installed on your machine
+- MySQL installed and running on your machine
+- Git installed on your machine
+
+### Steps:
+
+1. Open your terminal and navigate to the directory where you want to clone the project.
+2. Replace your-username with your GitHub username.
+3. Navigate into the project directory
+4. port the shoppero.sql file into your MySQL database. You can use a tool like phpMyAdmin or the MySQL command line to do this.
+5. Open the config.php file in the includes directory and update the database configuration values to match your local environment.
+6. Start your local development environment and navigate to the project in your web browser.

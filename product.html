@@ -21,19 +21,25 @@
         </div>
       </div>
     
-        <div class="header flex-box">
-            <div class="navigation flex-box">
-              <a href="index.html">HOME</a>
-              <a href="products.html">PRODUCTS</a>
-              <a href="">SALES</a>
-            </div>
-            <div id="login-cart" class="flex-box">
-              <p id="status" onclick="openLogin()">LOG IN</p>
-              <a href="cart.html"
-          ><img id="open-cart" src="./assets/open-cart.png"
-        /></a>
+      <div class="header flex-box">
+        <div class="navigation flex-box">
+          <a href="index.html">HOME</a>
+          <a href="products.html">PRODUCTS</a>
+          <a href="">SALES</a>
+        </div>
+        <div id="login-cart" class="flex-box">
+          <div id="login-text" class="login-text"><p onclick="openLogin()">LOG IN</p></div>
+          <div id="logged-in" class="dropdown">
+            <p id="welcome"></p>
+            <div class="dropdown-content">
+              <a href="profile.html">Edit Profile</a>
+              <a href="favorites.html">Wishlist</a>
+              <a href="#" onclick="logOut(); return false;">Log Out</a>
             </div>
           </div>
+          <img id="open-cart" src="./assets/open-cart.png" />
+        </div>
+      </div>
     <div class="main">
         <div class="left_column">
             <img id="image" src="assets/sandal.svg">
@@ -42,14 +48,14 @@
             <div id="type" class="type">MEN'S SANDALS</div>
             <div class="name_like_container">
                 <div id="name" class="name">HUNK - Toffee</div>
-                <div class="like" id="add-to-wishlist"><img src="./assets/heart.png" /></div>
+                <div class="like" id="add-to-wishlist" onclick="addtofavorites()"><img id="heart" src="./assets/heart.png" /></div>
             </div>
             <div id="description" class="description">Add a spring to your step with this elegant and sleek pair of
                 footwear! With
                 its
                 heavily padded ankle straps for secure footing and matted steel buckles that add flair,
                 support and style go hand in hand with these hunk sandals</div>
-            <button type="submit">Add to Cart</button>
+            <button type="submit" onclick="addtoCart()" id="add">Add to Cart</button>
             <div id="price" class="price">$45</div>
             <form>
                 <label for="color">SELECT COLOR:</label>

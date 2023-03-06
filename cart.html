@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SHOPPERO | Cart</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.4/axios.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/cart.css" />
       <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.4/axios.min.js"></script>
 </head>
@@ -29,58 +30,16 @@
     </div>
     <div class="shop_clear">
       <h1 class="shopping_cart">Shopping cart</h1>
-      <p class="clear" id="clear">clear</p>
+      <p onclick="clearCart()" class="clear">clear</p>
     </div>
 
-    <div class="items">
-      <div class="item_container">
-        <img class="item_img" id="item_img" src="assets/item1.png" />
-        <div class="name_description">
-          <p class="item_name">item name</p>
-          <p class="item_descrp">Description</p>
-        </div>
-        <form>
-          <label for="quantity">quantity:</label>
-          <input class="quantity_input" type="text" />
-        </form>
-        <p>25$</p>
-        <button class="remove_button">x</button>
-      </div>
-    </div>
-    <div class="items">
-      <div class="item_container">
-        <img class="item_img" src="assets/item3.png" />
-        <div class="name_description">
-          <p class="item_name">item name</p>
-          <p class="item_descrp">Description</p>
-        </div>
-        <form>
-          <label for="quantity">quantity:</label>
-          <input class="quantity_input" type="text" />
-        </form>
-        <p>25$</p>
-        <button class="remove_button">x</button>
-      </div>
-    </div>
-    <div class="items">
-      <div class="item_container">
-        <img class="item_img" src="assets/item2.png" />
-        <div class="name_description">
-          <p class="item_name">item name</p>
-          <p class="item_descrp">Description</p>
-        </div>
-        <form>
-          <label for="quantity">quantity:</label>
-          <input class="quantity_input" type="text" />
-        </form>
-        <p>45$</p>
-        <button class="remove_button">x</button>
-      </div>
+    <div id="container">
+
     </div>
     <div class="btn_pos">
       <p class="total">Total</p>
-      <p class="t_price">25$</p>
-      <button class="add_to_cart" type="submit">Checkout</button>
+      <p id="total" class="t_price">25$</p>
+      <button class="add_to_cart" onclick="window.location.href = 'chekout.html'">Checkout</button>
     </div>
     <script src="js/cart.js"></script>
   </body>
