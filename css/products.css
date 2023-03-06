@@ -195,3 +195,31 @@ label {
 select {
     width: 100%;
 }
+
+.item-card {
+    background-color: white;
+    height: 350px;
+    padding: 20px;
+    border-radius: 5px;
+    display: inline-block;
+    box-shadow: 3px 3px 40px -21px rgba(27, 12, 12, 0.8);
+    margin: 10px;
+}
+
+.item-card h3 {
+    text-align: center;
+}
+
+.item-card .flex-box {
+    justify-content: space-between;
+    width: 100%;
+}
+
+.item-card .flex-box h3 {
+    color: #e96e19;
+}
+
+.products_container {
+    display: flex;
+    flex-wrap: wrap;
+}
