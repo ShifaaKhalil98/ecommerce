@@ -288,7 +288,10 @@ input {
 .item-card-search .flex-box h3 {
   color: #e96e19;
 }
-
+.item-card:hover {
+  scale: 1.05;
+  transition: all 0.3s;
+}
 .category-img-left {
   position: absolute;
   left: 8rem;

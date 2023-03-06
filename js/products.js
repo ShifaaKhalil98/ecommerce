@@ -10,6 +10,7 @@ const select_price = document.getElementById('price_filter')
 const select_color = document.getElementById('color_filter')
 const select_brand = document.getElementById('brand_filter')
 const select_material = document.getElementById('material_filter')
+const welcome = document.getElementById('welcome')
 
 
 select_price.addEventListener('change', () => {
@@ -51,8 +52,9 @@ axios({
   }).then((result) => {
     console.log(result)
     if(result.data.success) {
-      login_status.style.display = 'none'
-      logged_in.style.display = 'block'
+        login_status.style.display = 'none'
+        logged_in.style.display = 'inline-block'
+        welcome.innerHTML = 'Welcome, ' + result.data.first_name
     } else {
       console.log('noo')
     }

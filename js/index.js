@@ -102,6 +102,17 @@ axios({
 //     console.error(err)
 // });
 
+function logOut() {
+  axios({
+    "method": "get",
+    "url": "http://localhost/shoppero_backend/logout.php",
+  }).then((result) => {
+    login_status.style.display = 'block'
+    logged_in.style.display = 'none'
+  }).catch((err) => {
+    console.error(err)
+  });
+}
 let displayProducts= (data, div)=>{
   data.forEach((element) => {
       console.log(element)
@@ -318,7 +329,9 @@ function submitForm() {
     }).then((result) => {
         console.log(result)
         if (result.data.status == "user added") {
-            status.innerHTML = `Welcome, <b>${result.data.first_name}</b>`
+          login_status.style.display = 'none'
+          logged_in.style.display = 'inline-block'
+          welcome.innerHTML = 'Welcome, ' + result.data.first_name
             closeForm()
         } else if(result.data.status == "password not validated") {
           alert("Could not validate password!")
@@ -350,7 +363,9 @@ function submitLogin() {
   }).then((result) => {
       console.log(result)
       if (result.data.status == "user logged in") {
-          status.innerHTML = `Welcome, <b>${result.data.first_name}</b>`
+        login_status.style.display = 'none'
+        logged_in.style.display = 'inline-block'
+        welcome.innerHTML = 'Welcome, ' + result.data.first_name
           closeForm()
       } else if(result.data.status == "password not validated") {
         alert("Could not validate password!")
