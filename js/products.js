@@ -32,7 +32,7 @@ let displayProduct = (data)=>{
 let displayProducts= (data)=>{
     data.forEach((element) => {
         console.log(element)
-        products_container.innerHTML+=`<div class="item-card">
+        products_container.innerHTML+=`<div class="item-card" onclick="window.location.href = window.location.href = 'product.html?id=${element.id}';">
         <div onclick="addtofavorites(${element.id})" class="item-img"><img id="add-to-wishlist" src="./assets/heart.png" /><img class="product-image" src="./${element.image}" /></div>
         <div class="product_name"><h3>${element.product_name}</h3></div>
         <div class="flex-box">

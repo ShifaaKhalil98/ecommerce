@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SHOPPERO | Admin Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="css/profile.css" />
+  </head>
+  <body>
+    <div class="header flex-box">
+      <div class="navigation flex-box">
+        <a href="index.html">HOME</a>
+        <a href="products.html">PRODUCTS</a>
+        <a href="">SALES</a>
+      </div>
+      <div class="search-container">
+        <div class="input-container">
+          <input
+            id="search"
+            type="text"
+            placeholder="Black shoes, white shirt..."
+            autocomplete="off"
+          />
+        </div>
+      </div>
+      <div id="login-cart" class="flex-box">
+        <p onclick="openLogin()">LOG IN</p>
+        <img id="open-cart" src="./assets/open-cart.png" />
+      </div>
+    </div>
+    <div class="container">
+      <div class="user-info">
+        <h1>Personal Information</h1>
+        <input id="first-name" name="first_name" value="first-name" readonly />
+        <input id="last-name" name="last_name" value="last-name" readonly />
+        <input
+          id="phone-number"
+          name="phone_number"
+          value="phone number"
+          readonly
+        />
+        <input id="email" name="email" value="email" readonly />
+        <input
+          id="shipping-address"
+          name="shipping_address"
+          value="shipping-address"
+          readonly
+        />
+      </div>
+      <div>
+        <button onclick="" id="edit" type="button">edit</button>
+      </div>
+    </div>
+    <div id="footer" class="flex-box">
+      <div class="shop-name">
+        <h1>SHOPPERO</h1>
+      </div>
+      <div class="footer-left">
+        <h2>Home</h2>
+        <h2>Products</h2>
+        <h2>Sales</h2>
+      </div>
+      <div class="footer-right">
+        <h2>Trusted by millions all over the world</h2>
+        <h2>© 2023 SHOPPERO</h2>
+      </div>
+    </div>
+    <script src="js/profile.js"></script>
+  </body>
+</html>
