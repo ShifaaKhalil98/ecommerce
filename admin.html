@@ -12,14 +12,41 @@
       <div class="admin-info">
         <div class="info">
           <h1>Personal Information</h1>
-          <h3>fname lname</h3>
-          <h3>phone number</h3>
-          <h3>email address</h3>
+          <input
+            id="first-name"
+            name="first-name"
+            value="first-name"
+            readonly
+          />
+          <input id="last-name" name="last-name" value="last-name" readonly />
+          <input
+            id="phone-number"
+            name="phone-number"
+            value="phone number"
+            readonly
+          />
+          <input id="email" name="email" value="email" readonly />
         </div>
         <div>
-          <button id="edit" type="button">edit</button>
+          <button onclick="" id="edit" type="button">edit</button>
         </div>
       </div>
+      <!-- users -->
+      <div class="users">
+        <h1>Users</h1>
+        <table id="table-users">
+          <tr>
+            <th>Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>Phone Number</th>
+            <th>Shipping Address</th>
+          </tr>
+        </table>
+      </div>
+
       <!-- products -->
       <div class="edit-products">
         <h1>Edit products</h1>
@@ -35,12 +62,12 @@
       <div class="form">
         <div class="form-left">
           <p>Product name</p>
-          <input id="product-name" type="text" />
+          <input id="product-name" name="product_name" type="text" />
           <table>
             <tr>
               <td class="key">Category</td>
               <td class="value">
-                <select>
+                <select name="category">
                   <option>Men</option>
                   <option>Female</option>
                 </select>
@@ -49,7 +76,7 @@
             <tr>
               <td class="key">Subcategory</td>
               <td class="value">
-                <select>
+                <select name="for_men">
                   <option>Tops</option>
                   <option>bottoms</option>
                   <option>Shoes</option>
@@ -60,7 +87,7 @@
             <tr>
               <td class="key">Brand</td>
               <td class="value">
-                <select>
+                <select name="brand">
                   <option>Lacoste</option>
                   <option>Female</option>
                 </select>
@@ -68,22 +95,31 @@
             </tr>
           </table>
           <p>Description</p>
-          <input id="description" type="text" />
+          <input id="description" name="description" type="text" />
         </div>
         <div class="form-right">
           <p>Product image</p>
           <div class="product-image">
-            <input id="product-image" type="image" />
+            <input id="product-image" name="product_image" type="image" />
             <p>drag your image(s) <span>or click to browse</span></p>
           </div>
           <p>Add sizes</p>
-          <input id="size" type="text" />
+          <input id="size" name="product_size" type="text" />
           <p>Add colors</p>
-          <input id="color" type="text" />
+          <input id="color" name="product_color" type="text" />
+          <p>Main color</p>
+          <input id="main-color" name="main_color" type="text" />
           <p>Add materials</p>
-          <input id="material" type="text" />
+          <input id="material" name="product_material" type="text" />
+          <p>Add price</p>
+          <input id="price" name="product_price" type="text" />
+          <p>Add discount</p>
+          <input id="discount" name="discount" type="text" />
         </div>
       </div>
+      <button type="submit" name="submit" id="submit" onclick="add_product()">
+        Submit
+      </button>
     </div>
     <script src="js/admin.js"></script>
   </body>

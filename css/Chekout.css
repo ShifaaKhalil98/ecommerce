@@ -78,3 +78,47 @@ body {
     justify-content: flex-end;
     gap: 5%;
 }
+.containers{
+    display: flex;
+    flex-direction: row;
+    
+    
+}
+.left-cont{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin-left: 4%;
+   
+}
+.right-cont{
+    display: flex;
+    flex-direction: column;
+    
+
+}
+.box{
+    margin-bottom: 3%;
+    width:100% ;
+
+background: #D9D9D9;
+
+}
+.back_c{
+    display: flex;
+    justify-content: space-between;
+}
+.back_to_cart{
+    background-color: transparent;
+    border: none;
+    font-family: "Montserrat";
+    font-weight: bold;
+}
+.continue{
+    
+
+background: rgba(203, 203, 203, 0.5);
+border-radius: 5px;
+
+
+}

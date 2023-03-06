@@ -155,19 +155,41 @@ password.addEventListener('keyup', () => {
 
 function submitForm() {
   if(validateForm()) {
-      var js_object = {
-          'firstname': register_form.elements['firstname'].value,
-          'lastname': register_form.elements['lastname'].value,
-          'email': register_form.elements['email'].value,
-          'password': register_form.elements['password'].value,
-      }
-      var json_object = JSON.stringify(js_object)
-      console.log('JSON Object: ',json_object)
-      full_name = register_form.elements['firstname'].value + ' ' + register_form.elements['lastname'].value
-      closeForm()
+    let email = document.getElementById('email').value;
+    let password = document.getElementById('password').value;
+    let first_name = document.getElementById('firstname').value;
+    let last_name = document.getElementById('lastname').value;
+
+    let data = new FormData();
+    data.append('email', email);
+    data.append('password', password);
+    data.append('first_name', first_name);
+    data.append('last_name', last_name);
+
+    axios({
+        "method": "post",
+        "url": "http://localhost/e-commerce_backend/signup.php",
+        "data": data
+    }).then((result) => {
+        console.log(result)
+        if (result.data.status == "user added") {
+            alert("signed up")
+            closeForm()
+        } else if(result.data.status == "password not validated") {
+          alert("Could not validate password!")
+        } else if(result.data.status == "email already exists") {
+          alert("This email already exists, try logging in instead")
+        }
+    }).catch((err) => {
+        console.error(err)
+    });
+      
   }
 }
 
+function submitLogin() {
+  
+}
 function validateForm() {
   var firstname = document.getElementById('firstname')
   var lastname = document.getElementById('lastname')
