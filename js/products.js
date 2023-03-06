@@ -2,7 +2,8 @@ const description = document.getElementById('description')
 const price = document.getElementById('price')
 const name = document.getElementById('name')
 const products_container = document.getElementById('products_container')
-const login_status = document.getElementById('status')
+const login_status = document.getElementById('login-text')
+const logged_in = document.getElementById('logged-in')
 const men = document.getElementById('men')
 const women = document.getElementById('women')
 const select_price = document.getElementById('price_filter')
@@ -20,7 +21,23 @@ select_price.addEventListener('change', () => {
     });
 })
 select_color.addEventListener('change', () => {
-    axios.get(`http://localhost/shoppero_backend/get_products.php?filter=price&value=${select_price.value}`).then((res)=>{
+    axios.get(`http://localhost/shoppero_backend/get_products.php?filter=color&value=${select_color.value}`).then((res)=>{
+    console.log(res.data);
+    displayProducts(res.data)
+    }).catch((err)=>{
+        console.error(err)
+    });
+})
+select_material.addEventListener('change', () => {
+    axios.get(`http://localhost/shoppero_backend/get_products.php?filter=color&value=${select_material.value}`).then((res)=>{
+    console.log(res.data);
+    displayProducts(res.data)
+    }).catch((err)=>{
+        console.error(err)
+    });
+})
+select_brand.addEventListener('change', () => {
+    axios.get(`http://localhost/shoppero_backend/get_products.php?filter=color&value=${select_brand.value}`).then((res)=>{
     console.log(res.data);
     displayProducts(res.data)
     }).catch((err)=>{
@@ -34,7 +51,8 @@ axios({
   }).then((result) => {
     console.log(result)
     if(result.data.success) {
-      login_status.innerHTML = `Welcome, <b>${result.data.first_name}</b>`
+      login_status.style.display = 'none'
+      logged_in.style.display = 'block'
     } else {
       console.log('noo')
     }

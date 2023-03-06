@@ -310,6 +310,7 @@ select {
     border-radius: 5px;
     background-color: #fff;
     color: #333;
+    width: 10rem;
   }
   
   /* Optional hover and focus styles */
