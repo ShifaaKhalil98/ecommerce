@@ -28,12 +28,12 @@ let displayProducts= (data)=>{
            <button type="button">Add to cart</button>
        </div>
    </div>` 
-   productElem.addEventListener('click', () => {
+   element.addEventListener('click', () => {
     
-    window.location.href = `/product-details.html?id=${element.id}`;
+    window.location.href = `/product.html?id=${element.id}`;
   });
 
-  products.appendChild(productElem);
+  products.appendChild(element);
     }
 }
 
