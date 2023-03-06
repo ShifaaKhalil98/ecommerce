@@ -35,12 +35,17 @@ function edit_user() {
     let data = new FormData();
     data.append("first_name", first_name.value);
     data.append("last_name", last_name.value);
-    data.append("phone_number", phone_number.value);
-    data.append("shipping_address", shipping_address.value);
+    data.append("email", email.value);
+    if(phone_number.value.length > 0) {
+      data.append("phone_number", phone_number.value);
+    }
+    if(shipping_address.value.length > 0) {
+      data.append("shipping_address", shipping_address.value);
+    }
 
     axios({
       method: "post",
-      url: "http://localhost/GroupProject-2/shoppero-backend/edit_profile.php",
+      url: "http://localhost/shoppero_backend/edit-profile.php",
       data: data,
     })
       .then((result) => {
@@ -54,23 +59,25 @@ function edit_user() {
   }
 }
 
-// axios({
-//   method: "post",
-//   url: "http://localhost/shoppero-backend/admin.php",
-//   data: data,
-// })
-//   .then((result) => {
-//     console.log(result);
-//     if (result.data.status == "exist") {
-//       ////////////////
-//       closeForm();
-//     } else if (result.data.status == "empty") {
-//       alert("No users to display!");
-//     }
-//   })
-//   .catch((err) => {
-//     console.error(err);
-//   });
+axios({
+  method: "get",
+  url: "http://localhost/shoppero_backend/get_user.php",
+})
+  .then((result) => {
+    console.log(result.data)
+    first_name.value = result.data.first_name
+    last_name.value = result.data.last_name
+    email.value = result.data.email
+    if(result.data.phone != null) {
+      phone_number.value = result.data.phone
+    }
+    if(result.data.shipping != null) {
+      shipping_address.value = result.data.shipping
+    }
+  })
+  .catch((err) => {
+    console.error(err);
+  });
 // }
 // }
 // }
