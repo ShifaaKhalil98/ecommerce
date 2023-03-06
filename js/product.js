@@ -37,3 +37,10 @@ let displayProducts= (data)=>{
     }
 }
 
+// save the id of the clicked product to the local storage
+// go to product js and add axious with the id in it
+//  then create a function based on that id with the html id's
+// 
+
+
+
