@@ -86,6 +86,9 @@ body {
 .item_img {
   box-shadow: 15px 15px 40px -21px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
+  width: 15rem;
+  height: 15rem;
+  object-fit: contain;
 }
 .add_to_cart {
   width: 150px;
@@ -124,4 +127,7 @@ p,
 label {
   font-size: 1.5rem;
   font-weight: bold;
+}
+.shop_clear p {
+  cursor: pointer;
 }
