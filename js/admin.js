@@ -71,17 +71,17 @@ function validateForm() {
 }
 function add_product() {
   if (validateForm()) {
-    let product_name = document.getElementById("product-name").value;
+    let product_name = document.getElementById("product_name").value;
     let for_men = document.getElementById("category").value;
     let subcategory = document.getElementById("subcategory").value;
     let brand = document.getElementById("brand").value;
     let description = document.getElementById("description").value;
-    let product_image = document.getElementById("product-image").value;
+    let product_image = document.getElementById("product_image").value;
     let product_size = document.getElementById("size").value;
     let product_color = document.getElementById("color").value;
     let product_material = document.getElementById("material").value;
     let price = document.getElementById("price").value;
-    let main_color = document.getElementById("main-color").value;
+    let main_color = document.getElementById("main_color").value;
 
     let data = new FormData();
     data.append("product_name", product_name);
@@ -106,7 +106,6 @@ function add_product() {
         console.log(result);
         if (result.data.status == "added") {
           alert("product added successfully");
-          closeForm();
         } else if (result.data.status == "exists") {
           alert("Product already exists!");
         }
@@ -117,58 +116,27 @@ function add_product() {
   }
 }
 
-// axios({
-//   method: "POST",
-//   url: "http://localhost/GroupProject-2/shoppero-backend/display-users.php"
-// }).then((result) => {
-//   console.log(result);
-// });
+table_users = document.getElementById("table-users");
 
-// function display_users(){
-// table_users = document.getElementById("table-users");
-// for (//////////////) {
-//   e = document.createElement("tr");
-//   for(i = 0; i < 7; i++){
-//     d = document.createElement("td");
-//     d.innerText = /////////////////;
-//     table_users.appendChild(e);
-//     e.appendChild(d);
-//   }
-// }
-// axios({
-//   method: "post",
-//   url: "http://localhost/GroupProject-2/shoppero-backend/display-users.php",
-//   data: data,
-// })
-//   .then((result) => {
-//     console.log(result);
-//     if (result.data.status == "exist") {
-//       ////////////////
-//       closeForm();
-//     } else if (result.data.status == "empty") {
-//       alert("No users to display!");
-//     }
-//   })
-//   .catch((err) => {
-//     console.error(err);
-//   });
-// }
-// }
-
-// axios({
-//   method: "POST",
-//   url: "http://localhost/GroupProject-2/shoppero-backend/display-users.php",
-//   data: data,
-// })
-//   .then((result) => {
-//     console.log(result);
-//     if (result.data.status == "exist") {
-//       alert("displayed");
-//       closeForm();
-//     } else if (result.data.status == "empty") {
-//       alert("empty");
-//     }
-//   })
-//   .catch((err) => {
-//     console.error(err);
-//   });
+axios
+  .get(`http://localhost/GroupProject-2/shoppero-backend/display-users.php`)
+  .then((res) => {
+    console.log(res.data);
+    display_users(res.data);
+  })
+  .catch((err) => {
+    console.error(err);
+  });
+let display_users = (data) => {
+  data.forEach((element) => {
+    console.log(element);
+    table_users.innerHTML += `<tr>
+          <td>${element.id}</td>
+          <td>${element.first_name}</td>
+          <td>${element.last_name}</td>
+          <td>${element.email}</td>
+          <td>${element.phone_number}</td>
+          <td>${element.shipping_address}</td>
+          </tr>`;
+  });
+};
