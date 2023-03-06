@@ -5,10 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SHOPPERO | Products</title>
+    <title> <!--Product Name--> </title>
     <link rel="stylesheet" type="text/css" href="css/products.css">
 </head>
-
 <body>
     <div id="header" class="flex-box">
         <div id="navigation" class="flex-box">
@@ -18,6 +17,7 @@
         </div>
         <div id="search-container">
             <div id="search" class="flex-box">
+                <!-- <img id="search-icon" src="./assets/search-icon.png" /> -->
                 <input type="text" placeholder="Black shoes, white shirt..." />
             </div>
         </div>
@@ -26,17 +26,66 @@
             <img id="open-cart" src="./assets/open-cart.png" />
         </div>
     </div>
-    <div class="category">
-        <div class="category-item">
-            <img src="assets/men_products.svg" alt="men's collection">
-            <h3>MEN'S COLLECTION</h3>
+    <div class="categories">
+        <div class="men_category">
+            <div class="image-wrapper">
+                <img class="man" src="assets/men_products.svg" alt="image">
+            </div>
+            <div class="text-wrapper">
+                <h2>Men Collection</h2>
+            </div>
         </div>
-        <div class="category-item">
-            <img src="assets/women_products.svg" alt="women's collection">
-            <h3>WOMEN'S COLLECTION</h3>
+        <div class="women_category">
+            <div class="text-wrapper">
+                <h2>Women Collection</h2>
+            </div>
+            <img class="woman" src="assets/women_products.svg" alt="image">
         </div>
     </div>
-
+    <div class="main">
+        <div class="filter_bar">
+            <h3>Filters</h3>
+            <div class="filter_group">
+                <label for="price_filter">Filter by price:</label>
+                <select id="price_filter" name="price_filter">
+                    <option value="$0-$50">$0-$50</option>
+                    <option value="$50-$100">$50-$100</option>
+                    <option value="$100-$200">$100-$200</option>
+                    <option value="$200+">$200+</option>
+                </select>
+            </div>
+            <div class="filter_group">
+                <label for="color_filter">Filter by color:</label>
+                <select id="color_filter" name="color_filter">
+                    <option value="red">Red</option>
+                    <option value="blue">Blue</option>
+                    <option value="green">Green</option>
+                    <option value="yellow">Yellow</option>
+                </select>
+            </div>
+            <div class="filter_group">
+                <label for="brand_filter">Filter by brand:</label>
+                <select id="brand_filter" name="brand_filter">
+                    <option value="nike">Nike</option>
+                    <option value="adidas">Adidas</option>
+                    <option value="puma">Puma</option>
+                    <option value="reebok">Reebok</option>
+                </select>
+            </div>
+            <div class="filter_group">
+                <label for="material_filter">Filter by material:</label>
+                <select id="material_filter" name="material_filter">
+                    <option value="cotton">Cotton</option>
+                    <option value="wool">Wool</option>
+                    <option value="leather">Leather</option>
+                    <option value="polyester">Polyester</option>
+                </select>
+            </div>
+        </div>
+        <div id="products_container" class="products_container">
+        </div>
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="js/products.js"></script>
 </body>
 
