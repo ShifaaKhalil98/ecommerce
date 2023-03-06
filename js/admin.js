@@ -1,6 +1,6 @@
 btn = document.getElementById("submit");
 btn.addEventListener("click", add_product);
-submit_btn = document.getElementById("submit");
+submit_btn = document.getElementById("loginButton");
 submit_btn.addEventListener("click", submitLogin);
 container = document.getElementsByClassName("container")[0];
 _login = document.getElementsByClassName("login")[0];
@@ -15,17 +15,15 @@ function submitLogin() {
     let data = new FormData();
     data.append("admin_email", admin_email);
     data.append("admin_password", admin_password);
+
     axios({
       method: "post",
-      url: "http://localhost/shoppero_backend/signup.php",
+      url: "http://localhost/shoppero_backend/admin-login.php",
       data: data,
     })
       .then((result) => {
         console.log(result);
-        if (result.data.status == "user added") {
-          login_status.style.display = "none";
-          logged_in.style.display = "inline-block";
-          welcome.innerHTML = "Welcome, " + result.data.first_name;
+        if (result.data.status == "admin logged in") {
           closeForm();
         } else if (result.data.status == "password not validated") {
           alert("Could not validate password!");
@@ -39,59 +37,14 @@ function submitLogin() {
   }
 }
 
-function submitLogin() {
-  let email = document.getElementById("loginEmail").value;
-  let password = document.getElementById("loginPassword").value;
-  let status = document.getElementById("status");
-
-  let data = new FormData();
-  data.append("email", email);
-  data.append("password", password);
-
-  console.log("yea");
-
-  axios({
-    method: "post",
-    url: "http://localhost/shoppero_backend/login.php",
-    data: data,
-  })
-    .then((result) => {
-      console.log(result);
-      if (result.data.status == "user logged in") {
-        login_status.style.display = "none";
-        logged_in.style.display = "inline-block";
-        welcome.innerHTML = "Welcome, " + result.data.first_name;
-        closeForm();
-      } else if (result.data.status == "password not validated") {
-        alert("Could not validate password!");
-      } else if (result.data.status == "email already exists") {
-        alert("This email already exists, try logging in instead");
-      }
-    })
-    .catch((err) => {
-      console.error(err);
-    });
-}
 function validateForm() {
-  var firstname = document.getElementById("firstname");
-  var lastname = document.getElementById("lastname");
+  var admin_email = document.getElementById("admin_email");
+  var admin_password = document.getElementById("admin_password");
   var error = document.getElementById("errormessage");
-  var confirm_password = document.getElementById("confirmPassword");
-  var email = document.getElementById("email");
   var email_regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
   error.innerHTML = "";
 
-  if (firstname.value.length == 0) {
-    error.innerHTML = "Please provide your first name!";
-    firstname.classList.add("errorField");
-    return false;
-  }
-  if (lastname.value.length == 0) {
-    error.innerHTML = "Please provide your last name!";
-    lastname.classList.add("errorField");
-    return false;
-  }
-  if (!email.value.match(email_regex) || email.value.length == 0) {
+  if (!admin_email.value.match(email_regex) || email.value.length == 0) {
     error.innerHTML = "Please provide a valid email!";
     email.classList.add("errorField");
     return false;
@@ -99,12 +52,6 @@ function validateForm() {
   if (!password_validated) {
     error.innerHTML = "Please fix your password!";
     password.classList.add("errorField");
-    return false;
-  }
-  if (password.value != confirm_password.value) {
-    error.innerHTML = "Passwords don't match!";
-    password.classList.add("errorField");
-    confirm_password.classList.add("errorField");
     return false;
   }
   return true;
