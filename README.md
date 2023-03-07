@@ -39,15 +39,13 @@ Welcome to Shoppero, a modern ecommerce website that allows users to browse prod
 
 ## Implementation
 
-| Section      | Screenshot                             |
-| ------------ | -------------------------------------- |
-| Home Page    | ![Home Page](./assets/home.png)        |
-| Product Page | ![Product Page](./assets/products.png) |
-|              |
-
-| Login Page | ![Login Page](./assets/login.pngg) |
-| Signup Page | ![Signup Page](./assets/register.png) |
-| Product Details| ![Product Details](./assets/products.png)|
+| Section         | Screenshot                                |
+| --------------- | ----------------------------------------- |
+| Home Page       | ![Home Page](./assets/home.png)           |
+| Product Page    | ![Product Page](./assets/products.png)    |
+| Login Page      | ![Login Page](./assets/login.png)         |
+| Signup Page     | ![Signup Page](./assets/register.png)     |
+| Product Details | ![Product Details](./assets/products.png) |
 
 ## How to Run
 
