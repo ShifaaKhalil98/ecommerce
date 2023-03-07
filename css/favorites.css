@@ -15,9 +15,62 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    gap: 4%;
     margin: 20px;
   }
-  
+  #add-to-wishlist {
+    position: absolute;
+    left: 0;
+  }
+  .item-card:hover {
+    scale: 1.05;
+    transition: all 0.3s;
+  }
+.item-card {
+    margin-top: 1rem;
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 2rem;
+    border-radius: 5px;
+    display: inline-block;
+    box-shadow: 3px 3px 40px -21px rgba(27, 12, 12, 0.8);
+    cursor: pointer;
+    scale: 1;
+    transition: all 0.3s;
+}
+
+.item-card h3 {
+  text-align: center;
+}
+
+.item-card .flex-box {
+  justify-content: space-between;
+  width: 100%;
+}
+
+.item-card .flex-box h3 {
+  color: #e96e19;
+}
+.item-card button {
+  background-color: #e96e19;
+  border: 0;
+  border-radius: 5px;
+  color: white;
+  padding: 3% 5%;
+}
+.product-image {
+  width: 20rem;
+  height: 20rem;
+  object-fit: contain;
+}
+.product_name {
+  width:20rem;
+  text-align: center;
+}
+.item-img {
+  position: relative;
+}
+
   .product {
     display: flex;
     flex-direction: column;

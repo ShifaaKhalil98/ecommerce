@@ -11,7 +11,10 @@ const size = document.getElementById('size')
 let colors = []
 let sizes = []
 let color_images = {}
-console.log(id)
+let added = false
+const login_status = document.getElementById('login-text')
+const logged_in = document.getElementById('logged-in')
+const welcome = document.getElementById('welcome')
 const heart = document.getElementById('add-to-wishlist');
 axios({
     "method": "get",
@@ -49,14 +52,75 @@ function switchColor(color) {
     image.src = color_images[String(color)]
 }
 
-heart.addEventListener('click', () => {
-  axios.get('http://localhost/shoppero_backend/add_to_favorites.php', { user_id: userID, product_id: productID })
-    .then((response) => {
-      console.log(response.data);
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-});
+axios({
+    "method": "get",
+    "url": "http://localhost/shoppero_backend/check_login.php",
+    withCredentials: true
+  }).then((result) => {
+    console.log(result)
+    if(result.data.success) {
+      console.log('loggedin')
+      login_status.style.display = 'none'
+      logged_in.style.display = 'inline-block'
+      welcome.innerHTML = 'Welcome, ' + result.data.first_name
+      loggedin = true
+    } else {
+      console.log('noo')
+    }
+  }).catch((err) => {
+    console.error(err)
+  });
+
+// heart.addEventListener('click', () => {
+//   axios.get('http://localhost/shoppero_backend/add_to_favorites.php', { user_id: userID, product_id: productID })
+//     .then((response) => {
+//       console.log(response.data);
+//     })
+//     .catch((error) => {
+//       console.error(error);
+//     });
+// });
 // add value attribute in html
 // 0
+
+function addtofavorites() {
+    let heart = document.getElementById('heart');
+    if(added) {
+        heart.src = './assets/heart.png'
+        added = false
+    } else {
+        heart.src = './assets/filled_heat.png'
+        added = true
+    }
+    let data = new FormData();
+    data.append('product_id', id);
+
+    axios({
+      "method": "post",
+      "url": "http://localhost/shoppero_backend/add_to_favorites.php",
+      "data": data
+    }).then((result) => {
+        if(result.data.status = 'success') {
+          console.log(result)
+        }
+        
+    }).catch((err) => {
+        console.error(err)
+    });
+  }
+
+  function addtoCart() {
+    let data = new FormData();
+    data.append('product_id',id);
+
+    axios({
+      "method": "post",
+      "url": "http://localhost/shoppero_backend/add_to_cart.php",
+      "data": data
+    }).then((result) => {
+      document.getElementById('add').innerHTML = "Added"
+        
+    }).catch((err) => {
+        console.error(err)
+    });
+  }

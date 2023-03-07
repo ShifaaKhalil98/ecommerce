@@ -26,6 +26,8 @@ const reset_email = document.getElementById('resetEmail')
 const reset_password = document.getElementById('resetPassword')
 const reset_form = document.getElementById('passwordForm')
 const reset_popup = document.getElementById('passwordPopup')
+const open_cart = document.getElementById('open-cart')
+const loggedin = false
 let password_validated = false
 let position = 0
 let direction = 1
@@ -52,6 +54,7 @@ axios({
     login_status.style.display = 'none'
     logged_in.style.display = 'inline-block'
     welcome.innerHTML = 'Welcome, ' + result.data.first_name
+    loggedin = true
   } else {
     console.log('noo')
   }
@@ -131,6 +134,12 @@ let displayProducts= (data, div)=>{
       </div>` 
   })
   }
+
+if(loggedin) {
+  open_cart.addEventListener('click', openLogin())
+} else {
+  open_cart.addEventListener('click', () => {window.location.href='cart.html'})
+}
 
 //category-1
 var right_clicks_1 = 0;
@@ -219,7 +228,7 @@ search_bar.addEventListener('keyup', () => {
         <div class="product_name"><h3>${result.product_name}</h3></div>
         <div class="flex-box">
           <h3>$${result.price}</h3>
-          <button type="button">Add to cart</button>
+          <button type="button" onclick="addtoCart(${result.id})">Add to cart</button>
         </div>
       </div>`
 
@@ -339,6 +348,7 @@ function submitForm() {
           login_status.style.display = 'none'
           logged_in.style.display = 'inline-block'
           welcome.innerHTML = 'Welcome, ' + result.data.first_name
+          open_cart.onclick = window.location.href='cart.html'
             closeForm()
         } else if(result.data.status == "password not validated") {
           alert("Could not validate password!")
@@ -392,6 +402,7 @@ function submitLogin() {
         login_status.style.display = 'none'
         logged_in.style.display = 'inline-block'
         welcome.innerHTML = 'Welcome, ' + result.data.first_name
+        open_cart.onclick = window.location.href='cart.html'
           closeForm()
       } else if(result.data.status == "password not validated") {
         alert("Could not validate password!")
@@ -446,4 +457,21 @@ function openReset() {
   reset_popup.classList.remove('openForm');
   reset_popup.classList.add('openForm');
   container.classList.add('containerBlur')
+}
+
+function addtoCart(id) {
+  let data = new FormData();
+  data.append('product_id',id);
+  console.log(id)
+
+  axios({
+    "method": "post",
+    "url": "http://localhost/shoppero_backend/add_to_cart.php",
+    "data": data
+  }).then((result) => {
+    console.log(result)
+      
+  }).catch((err) => {
+      console.error(err)
+  });
 }
