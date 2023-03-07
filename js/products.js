@@ -84,7 +84,7 @@ let displayProducts= (data)=>{
     })
     }
     const addtofavorites=(id)=>{
-      axios.get('http://localhost/shoppero_backend/add_to_favorites.php', {  user_id: userID, product_id: productID})
+      axios.get(`http://localhost/shoppero_backend/add_to_favorites.php?user_id=${userID}&product_id=${productID}`)
     .then((response) => {
       console.log(response.data);
     })
