@@ -58,8 +58,12 @@ Welcome to Shoppero, a modern ecommerce website that allows users to browse prod
 ### Steps:
 
 1. Open your terminal and navigate to the directory where you want to clone the project.
-2. Replace your-username with your GitHub username.
-3. Navigate into the project directory
+   `cd /path/to/your/directory`
+2. Clone the project from the GitHub repository using git:
+   `git clone https://github.com/your-username/shoppero.git`
+3. Navigate into the project directory:
+   `cd shoppero`
 4. port the shoppero.sql file into your MySQL database. You can use a tool like phpMyAdmin or the MySQL command line to do this.
+   `mysql -u your-username -p your-database-name < shoppero.sql`
 5. Open the config.php file in the includes directory and update the database configuration values to match your local environment.
 6. Start your local development environment and navigate to the project in your web browser.

@@ -60,3 +60,4 @@ let displayProducts= (data)=>{
         console.error(err)
     });
   }
+  
